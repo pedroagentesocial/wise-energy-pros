@@ -1,5 +1,5 @@
 ---
-import { getDictionary, isLocale, locales } from '../../i18n';
+import { getDictionary, isLocale, locales, localizedPath } from '../../i18n';
 import Layout from '../../layouts/Layout.astro';
 import ValidatedLeadForm from '../../components/ValidatedLeadForm';
 
@@ -14,6 +14,8 @@ if (!isLocale(lang)) {
 	throw new Error('Unsupported locale');
 }
 const t = getDictionary(lang);
+const privacyUrl = localizedPath(lang, '/privacy-policy');
+const termsUrl = localizedPath(lang, '/terms-and-conditions');
 ---
 
 <Layout title={t.meta.contact.title} description={t.meta.contact.description} lang={lang}>
@@ -41,8 +43,8 @@ const t = getDictionary(lang);
 						submitLabel={t.contact.form.submit}
 						showService={true}
 						showMessage={true}
-						privacyHref={`/${lang}/privacy-policy`}
-						termsHref={`/${lang}/terms-and-conditions`}
+						privacyHref={privacyUrl}
+						termsHref={termsUrl}
 					/>
 				</div>
 			</div>

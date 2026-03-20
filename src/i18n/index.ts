@@ -4,6 +4,8 @@ import es from './locales/es.json';
 export const locales = ['en', 'es'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
+const rawBase = import.meta.env.BASE_URL ?? '/';
+const basePath = rawBase.endsWith('/') ? rawBase : `${rawBase}/`;
 
 const dictionaries = {
 	en,
@@ -30,5 +32,9 @@ export const normalizeRoute = (pathname: string): string => {
 
 export const localizedPath = (locale: Locale, pathname: string): string => {
 	const normalized = normalizeRoute(pathname);
-	return normalized === '/' ? `/${locale}` : `/${locale}${normalized}`;
+	const localized = normalized === '/' ? `/${locale}/` : `/${locale}${normalized}`;
+	if (basePath === '/') {
+		return localized;
+	}
+	return `${basePath}${localized.replace(/^\//, '')}`;
 };

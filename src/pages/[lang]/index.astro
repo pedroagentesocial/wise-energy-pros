@@ -5,7 +5,7 @@ import ServicesGrid from '../../components/ServicesGrid';
 import TestimonialsMarquee from '../../components/TestimonialsMarquee';
 import ValidatedLeadForm from '../../components/ValidatedLeadForm';
 import WhyChooseGrid from '../../components/WhyChooseGrid';
-import { getDictionary, isLocale, locales } from '../../i18n';
+import { getDictionary, isLocale, locales, localizedPath } from '../../i18n';
 import Layout from '../../layouts/Layout.astro';
 
 export const getStaticPaths = () => {
@@ -24,6 +24,9 @@ const serviceItems = t.home.servicesSection.items.map((item) => ({
 	icon: item.icon as 'installation' | 'maintenance' | 'panel' | 'renovation' | 'ev',
 }));
 const galleryProjects = t.home.gallery.projects;
+const contactUrl = localizedPath(lang, '/contact');
+const privacyUrl = localizedPath(lang, '/privacy-policy');
+const termsUrl = localizedPath(lang, '/terms-and-conditions');
 const whyChooseItems = t.home.whyChoose.items.map((item) => ({
 	...item,
 	icon: item.icon as 'licensed' | 'fast' | 'technicians' | 'pricing' | 'materials' | 'satisfaction',
@@ -62,7 +65,7 @@ const contactPhoneDial = '+18005550145';
 				<h2 class="text-3xl font-bold text-slate-50 md:text-5xl">{t.home.finalCta.heading}</h2>
 				<p class="mx-auto mt-4 max-w-3xl text-slate-400">{t.home.finalCta.subheading}</p>
 				<div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-					<a href={`/${lang}/contact`} class="inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3.5 text-base font-bold text-slate-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500">
+					<a href={contactUrl} class="inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3.5 text-base font-bold text-slate-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500">
 						{t.home.finalCta.primary}
 					</a>
 					<a href={`tel:${contactPhoneDial}`} class="inline-flex items-center justify-center rounded-full border border-cyan-400/70 bg-cyan-400/10 px-8 py-3.5 text-base font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20">
@@ -97,8 +100,8 @@ const contactPhoneDial = '+18005550145';
 						submitLabel={t.home.contactSection.form.submit}
 						showService={true}
 						showMessage={true}
-						privacyHref={`/${lang}/privacy-policy`}
-						termsHref={`/${lang}/terms-and-conditions`}
+						privacyHref={privacyUrl}
+						termsHref={termsUrl}
 					/>
 				</div>
 			</div>

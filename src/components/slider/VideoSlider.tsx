@@ -29,6 +29,8 @@ const VideoSlider = ({
   goToLabel,
   autoplayIntervalMs = 6000,
 }: VideoSliderProps) => {
+  const basePath = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+  const localizedHref = (href: string) => `${basePath}${lang}${href}`.replace(/([^:]\/)\/+/g, '$1');
   const [usePosterOnly, setUsePosterOnly] = useState(false);
   const [lowPerformanceMode, setLowPerformanceMode] = useState(false);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
@@ -179,7 +181,7 @@ const VideoSlider = ({
               index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
             }`}>
               <a
-                href={`/${lang}${slide.href}`}
+                href={localizedHref(slide.href)}
                 className="inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3.5 text-base font-bold text-slate-50 ring-1 ring-blue-400/40 shadow-[0_0_26px_rgba(37,99,235,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-[0_0_32px_rgba(34,211,238,0.45)]"
               >
                 {slide.cta}
