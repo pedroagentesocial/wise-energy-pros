@@ -52,11 +52,10 @@ const TestimonialsMarquee = ({ heading, sourceLabel, location, items, speedSecon
                         <p className="text-xs text-slate-400">{item.location ?? location}</p>
                       </div>
                     </div>
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-700 bg-slate-950/70 px-2 py-1">
+                    <span className="inline-flex items-center rounded-full border border-slate-700 bg-slate-950/70 p-1">
                       <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-slate-50 text-[11px] font-bold leading-none">
                         <span className="text-[#4285F4]">G</span>
                       </span>
-                      <span className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">{sourceLabel}</span>
                     </span>
                   </div>
                   <p className="mt-3.5 text-sm leading-relaxed text-slate-300 antialiased md:mt-4 md:text-[15px]">“{item.quote}”</p>
