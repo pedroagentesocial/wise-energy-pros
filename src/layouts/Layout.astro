@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import ValidatedLeadForm from '../components/ValidatedLeadForm';
+import RequestFreeQuote from '../components/RequestFreeQuote.astro';
 import { defaultLocale, getDictionary, isLocale, localizedPath, normalizeRoute } from '../i18n';
 
 export interface Props {
@@ -144,33 +144,17 @@ const footerQuickLinks = [
 			<div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
 			<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.08),_transparent_45%),radial-gradient(circle_at_bottom_right,_rgba(37,99,235,0.1),_transparent_40%)]"></div>
 			<div class="container relative mx-auto px-6 pt-12">
-				<div class="grid grid-cols-1 gap-6 rounded-3xl border border-slate-800/90 bg-slate-900/40 p-6 backdrop-blur-md transition-all duration-500 hover:border-cyan-400/40 lg:grid-cols-3 lg:items-center lg:p-8">
-					<div class="lg:col-span-2">
-						<h2 class="text-2xl font-extrabold text-slate-50 md:text-3xl">{dictionary.footer.lead.heading}</h2>
-						<p class="mt-3 max-w-2xl text-slate-400">{dictionary.footer.lead.subheading}</p>
-						<div class="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-							<a href={localizedContactUrl} class="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-extrabold text-slate-50 shadow-[0_0_20px_rgba(37,99,235,0.45)] ring-1 ring-blue-400/40 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01] hover:bg-blue-500">
-								{dictionary.footer.lead.quote}
-							</a>
-							<a href={`tel:${contactPhoneDial}`} class="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 px-6 py-3 text-sm font-semibold text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400">
-								{dictionary.footer.lead.call}
-							</a>
-							<a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-cyan-400/60 bg-cyan-400/10 px-6 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20">
-								{dictionary.footer.lead.whatsapp}
-							</a>
-						</div>
-					</div>
-					<div class="rounded-2xl border border-slate-800 bg-slate-950/80 p-4">
-						<ValidatedLeadForm
-							client:load
-							strings={dictionary.forms}
-							submitLabel={dictionary.footer.lead.form.submit}
-							showService={false}
-							showMessage={false}
-							compact={true}
-						/>
-					</div>
-				</div>
+				<RequestFreeQuote
+					lead={dictionary.footer.lead}
+					contactLabels={dictionary.footer.contactLabels}
+					social={dictionary.footer.social}
+					location={dictionary.footer.location}
+					localizedContactUrl={localizedContactUrl}
+					contactPhoneDisplay={contactPhoneDisplay}
+					contactPhoneDial={contactPhoneDial}
+					whatsappUrl={whatsappUrl}
+					email="intake@wiseenergypros.com"
+				/>
 			</div>
 			<div class="container relative mx-auto px-6 pt-8">
 				<div class="rounded-2xl border border-slate-800/90 bg-slate-900/35 p-5 backdrop-blur-md">
@@ -188,31 +172,12 @@ const footerQuickLinks = [
 					</div>
 				</div>
 			</div>
-			<div class="container relative mx-auto grid grid-cols-1 gap-10 px-6 py-14 md:grid-cols-2 xl:grid-cols-4">
+			<div class="container relative mx-auto grid grid-cols-1 gap-10 px-6 py-14 md:grid-cols-2 xl:grid-cols-3">
 				<div>
 					<a href={homeUrl} class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text">
 						{dictionary.brand}
 					</a>
 					<p class="mt-4 max-w-sm text-slate-400">{dictionary.footer.description}</p>
-					<div class="mt-5 flex items-center gap-3">
-						<a href="https://facebook.com" target="_blank" rel="noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-400" aria-label={dictionary.footer.social.facebook}>
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4">
-								<path d="M13 21v-8h3l.5-3H13V8.5c0-.9.3-1.5 1.5-1.5H17V4h-2.6C11.5 4 10 5.7 10 8.4V10H7v3h3v8h3Z" />
-							</svg>
-						</a>
-						<a href="https://instagram.com" target="_blank" rel="noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-400" aria-label={dictionary.footer.social.instagram}>
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4">
-								<rect x="3.5" y="3.5" width="17" height="17" rx="4" />
-								<circle cx="12" cy="12" r="3.5" />
-								<circle cx="17.5" cy="6.5" r="0.6" />
-							</svg>
-						</a>
-						<a href="https://linkedin.com" target="_blank" rel="noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-400" aria-label={dictionary.footer.social.linkedin}>
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4">
-								<path d="M7 10v7M7 7.5v.1M11 17v-4.2c0-1.7 1.1-2.8 2.5-2.8S16 11 16 12.7V17M4 17h16" />
-							</svg>
-						</a>
-					</div>
 				</div>
 				<div>
 					<h3 class="text-sm font-bold uppercase tracking-wider text-slate-50">{dictionary.footer.servicesTitle}</h3>
@@ -228,14 +193,6 @@ const footerQuickLinks = [
 						{footerQuickLinks.map((item) => (
 							<li><a href={item.href} class="text-slate-400 transition-all duration-300 hover:translate-x-0.5 hover:text-cyan-400">{item.label}</a></li>
 						))}
-					</ul>
-				</div>
-				<div>
-					<h3 class="text-sm font-bold uppercase tracking-wider text-slate-50">{dictionary.footer.contactTitle}</h3>
-					<ul class="mt-4 space-y-2 text-slate-400">
-						<li>{dictionary.footer.contactLabels.phone}: <a href={`tel:${contactPhoneDial}`} class="transition-colors duration-300 hover:text-cyan-400">{contactPhoneDisplay}</a></li>
-						<li>{dictionary.footer.contactLabels.email}: <a href="mailto:intake@wiseenergypros.com" class="transition-colors duration-300 hover:text-cyan-400">intake@wiseenergypros.com</a></li>
-						<li>{dictionary.footer.contactLabels.location}: {dictionary.footer.location}</li>
 					</ul>
 				</div>
 			</div>

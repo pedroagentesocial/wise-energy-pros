@@ -163,18 +163,37 @@
     },
     "whyChoose": {
       "heading": "Why Homeowners and Businesses Choose Us",
+      "intro": "Trusted electrical professionals focused on safety, speed, and long-term performance for every project.",
       "items": [
         {
-          "title": "Code-First Execution",
-          "description": "Every installation, repair, and upgrade is delivered with strict NEC-compliant quality standards."
+          "title": "Licensed & Insured",
+          "description": "Fully licensed electricians with insured operations for reliable and protected service.",
+          "icon": "licensed"
         },
         {
-          "title": "Rapid Response Team",
-          "description": "We prioritize urgent electrical issues with clear communication and predictable response windows."
+          "title": "Fast Response Time",
+          "description": "Quick turnaround for urgent requests with clear updates from first contact to completion.",
+          "icon": "fast"
         },
         {
-          "title": "Long-Term Reliability",
-          "description": "Our systems are engineered for safety, capacity growth, and lower failure risk over time."
+          "title": "Experienced Technicians",
+          "description": "Field-tested teams with deep expertise in diagnostics, upgrades, and compliant installations.",
+          "icon": "technicians"
+        },
+        {
+          "title": "Transparent Pricing",
+          "description": "Clear estimates and scope breakdowns so you know what to expect before work begins.",
+          "icon": "pricing"
+        },
+        {
+          "title": "High-Quality Materials",
+          "description": "Durable components selected for safety, code alignment, and long-term reliability.",
+          "icon": "materials"
+        },
+        {
+          "title": "Customer Satisfaction Guaranteed",
+          "description": "We stand behind our workmanship and prioritize communication at every project stage.",
+          "icon": "satisfaction"
         }
       ]
     },

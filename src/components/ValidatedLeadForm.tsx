@@ -11,6 +11,8 @@ type ValidatedLeadFormProps = {
   showMessage?: boolean;
   compact?: boolean;
   submitHandler?: LeadFormSubmitHandler;
+  privacyHref?: string;
+  termsHref?: string;
 };
 
 const ValidatedLeadForm = ({
@@ -20,6 +22,8 @@ const ValidatedLeadForm = ({
   showMessage = true,
   compact = false,
   submitHandler,
+  privacyHref = '/privacy-policy',
+  termsHref = '/terms-and-conditions',
 }: ValidatedLeadFormProps) => {
   const {
     values,
@@ -162,9 +166,9 @@ const ValidatedLeadForm = ({
         >
           <span>
             {strings.requiredConsentPrefix}{' '}
-            <a href="/privacy-policy" className="text-cyan-400 hover:text-cyan-300"> {strings.privacyPolicy} </a>
+            <a href={privacyHref} className="text-cyan-400 hover:text-cyan-300"> {strings.privacyPolicy} </a>
             {` ${strings.consentJoiner} `}
-            <a href="/terms-and-conditions" className="text-cyan-400 hover:text-cyan-300">{strings.termsAndConditions}</a>
+            <a href={termsHref} className="text-cyan-400 hover:text-cyan-300">{strings.termsAndConditions}</a>
           </span>
         </ConsentCheckbox>
         {showError('requiredConsent') && <p className="text-xs text-red-300">{errors.requiredConsent}</p>}

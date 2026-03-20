@@ -163,18 +163,37 @@
     },
     "whyChoose": {
       "heading": "Por Qué Nos Eligen Hogares y Empresas",
+      "intro": "Profesionales eléctricos confiables enfocados en seguridad, rapidez y rendimiento a largo plazo en cada proyecto.",
       "items": [
         {
-          "title": "Ejecución Basada en Código",
-          "description": "Cada instalación, reparación y actualización se entrega bajo estándares estrictos de cumplimiento NEC."
+          "title": "Licenciados y Asegurados",
+          "description": "Electricistas con licencia y operaciones aseguradas para un servicio confiable y protegido.",
+          "icon": "licensed"
         },
         {
           "title": "Respuesta Rápida",
-          "description": "Priorizamos incidentes eléctricos urgentes con comunicación clara y tiempos de respuesta definidos."
+          "description": "Atendemos solicitudes urgentes con tiempos ágiles y seguimiento claro de principio a fin.",
+          "icon": "fast"
         },
         {
-          "title": "Confiabilidad a Largo Plazo",
-          "description": "Diseñamos sistemas para seguridad, crecimiento de capacidad y menor riesgo de fallas futuras."
+          "title": "Técnicos con Experiencia",
+          "description": "Equipos con amplia experiencia en diagnósticos, modernizaciones e instalaciones normativas.",
+          "icon": "technicians"
+        },
+        {
+          "title": "Precios Transparentes",
+          "description": "Estimaciones claras y alcance detallado para que sepas exactamente qué incluye el servicio.",
+          "icon": "pricing"
+        },
+        {
+          "title": "Materiales de Alta Calidad",
+          "description": "Componentes duraderos seleccionados para seguridad, cumplimiento y rendimiento sostenido.",
+          "icon": "materials"
+        },
+        {
+          "title": "Satisfacción Garantizada",
+          "description": "Respaldamos nuestro trabajo y priorizamos una comunicación constante en todo el proyecto.",
+          "icon": "satisfaction"
         }
       ]
     },

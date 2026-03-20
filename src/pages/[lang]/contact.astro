@@ -14,9 +14,6 @@ if (!isLocale(lang)) {
 	throw new Error('Unsupported locale');
 }
 const t = getDictionary(lang);
-const contactPhoneDisplay = '+1 (800) 555-0145';
-const contactPhoneDial = '+18005550145';
-const whatsappUrl = `https://wa.me/18005550145?text=${encodeURIComponent('Hi Wise Energy Pros, I need a quote.')}`;
 ---
 
 <Layout title={t.meta.contact.title} description={t.meta.contact.description} lang={lang}>
@@ -24,45 +21,29 @@ const whatsappUrl = `https://wa.me/18005550145?text=${encodeURIComponent('Hi Wis
 		<div class="container mx-auto px-6 opacity-0 translate-y-4" data-reveal data-stagger-parent>
 			<h1 class="text-4xl font-extrabold text-slate-50 md:text-5xl">{t.contact.heading}</h1>
 			<p class="mt-4 max-w-3xl text-slate-400">{t.contact.intro}</p>
-			<div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
-				<div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/60 lg:col-span-1" data-stagger-item>
-					<h2 class="text-2xl font-bold text-slate-50">{t.contact.quickActionsTitle}</h2>
-					<p class="mt-3 text-slate-400">{t.contact.quickActionsSubtitle}</p>
-					<div class="mt-6 grid gap-3">
-						<a href={`tel:${contactPhoneDial}`} class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-slate-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500">
-							{t.conversion.callNow}
-						</a>
-						<a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-xl border border-cyan-400/60 bg-cyan-400/10 px-4 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20">
-							{t.conversion.whatsapp}
-						</a>
+			<div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
+				<div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-4 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50 md:p-6" data-stagger-item>
+					<h2 class="mb-4 text-xl font-bold text-slate-50">{t.contact.mapTitle}</h2>
+					<div class="overflow-hidden rounded-xl border border-slate-800">
+						<iframe
+							title={t.contact.mapTitle}
+							src="https://www.google.com/maps?q=United+States&output=embed"
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							class="h-72 w-full md:h-[30rem]"
+						></iframe>
 					</div>
-					<h3 class="mt-8 text-lg font-bold text-slate-50">{t.contact.channelsTitle}</h3>
-					<ul class="mt-3 space-y-2 text-slate-400">
-						<li>{t.contact.phoneLabel}: {contactPhoneDisplay}</li>
-						<li>{t.contact.emailLabel}: intake@wiseenergypros.com</li>
-						<li>{t.contact.coverageLabel}: {t.contact.coverageValue}</li>
-					</ul>
 				</div>
-				<div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50 lg:col-span-2" data-stagger-item>
+				<div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50" data-stagger-item>
 					<ValidatedLeadForm
 						client:load
 						strings={t.forms}
 						submitLabel={t.contact.form.submit}
 						showService={true}
 						showMessage={true}
+						privacyHref={`/${lang}/privacy-policy`}
+						termsHref={`/${lang}/terms-and-conditions`}
 					/>
-				</div>
-			</div>
-			<div class="mt-8 rounded-2xl border border-slate-800 bg-slate-900/50 p-4 backdrop-blur-md opacity-0 translate-y-3" data-stagger-item>
-				<h2 class="mb-4 text-xl font-bold text-slate-50">{t.contact.mapTitle}</h2>
-				<div class="overflow-hidden rounded-xl border border-slate-800">
-					<iframe
-						title={t.contact.mapTitle}
-						src="https://www.google.com/maps?q=United+States&output=embed"
-						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"
-						class="h-72 w-full md:h-96"
-					></iframe>
 				</div>
 			</div>
 		</div>

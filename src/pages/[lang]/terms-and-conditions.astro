@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getDictionary, isLocale, locales } from '../../i18n';
+
+export const getStaticPaths = () => {
+	return locales.map((lang) => ({
+		params: { lang },
+	}));
+};
+
+const lang = Astro.params.lang ?? 'en';
+if (!isLocale(lang)) {
+	throw new Error('Unsupported locale');
+}
+const t = getDictionary(lang);
+
+const copy = {
+	en: {
+		title: 'Terms and Conditions',
+		effective: 'Effective date: March 20, 2026',
+		intro: 'These Terms and Conditions govern your use of the Wise Energy Pros website and all digital service inquiries. By using this website, you agree to these terms.',
+	},
+	es: {
+		title: 'Términos y Condiciones',
+		effective: 'Fecha de vigencia: 20 de marzo de 2026',
+		intro: 'Estos Términos y Condiciones regulan el uso del sitio web de Wise Energy Pros y todas las solicitudes digitales de servicio. Al usar este sitio, usted acepta estos términos.',
+	},
+}[lang];
+---
+
+<Layout title={`${copy.title} | Wise Energy Pros`} description={t.meta.contact.description} lang={lang}>
+	<section class="bg-slate-950 py-20">
+		<div class="container mx-auto max-w-4xl px-6">
+			<h1 class="text-4xl font-extrabold text-slate-50 md:text-5xl">{copy.title}</h1>
+			<p class="mt-4 text-slate-400">{copy.effective}</p>
+			<p class="mt-6 text-slate-400">{copy.intro}</p>
+
+			<h2 class="mt-10 text-2xl font-bold text-slate-50">{lang === 'en' ? '1. Website Use' : '1. Uso del sitio'}</h2>
+			<p class="mt-3 text-slate-400">
+				{lang === 'en'
+					? 'The website is provided for informational and inquiry purposes. You agree not to misuse, disrupt, or attempt unauthorized access to systems or content.'
+					: 'El sitio web se proporciona con fines informativos y de consulta. Usted acepta no hacer un uso indebido, no interrumpir ni intentar acceso no autorizado a sistemas o contenido.'}
+			</p>
+
+			<h2 class="mt-10 text-2xl font-bold text-slate-50">{lang === 'en' ? '2. Estimates and Scope' : '2. Estimaciones y alcance'}</h2>
+			<p class="mt-3 text-slate-400">
+				{lang === 'en'
+					? 'Online information is general guidance. Final scope, pricing, schedules, and deliverables are only valid when documented in a written estimate or signed agreement.'
+					: 'La información en línea es orientación general. El alcance final, precios, cronogramas y entregables solo son válidos cuando se documentan en una estimación escrita o acuerdo firmado.'}
+			</p>
+
+			<h2 class="mt-10 text-2xl font-bold text-slate-50">{lang === 'en' ? '3. Customer Responsibilities' : '3. Responsabilidades del cliente'}</h2>
+			<ul class="mt-3 list-disc space-y-2 pl-6 text-slate-400">
+				<li>{lang === 'en' ? 'Provide accurate project information and property access.' : 'Proporcionar información precisa del proyecto y acceso a la propiedad.'}</li>
+				<li>{lang === 'en' ? 'Review and approve written scope before project start.' : 'Revisar y aprobar el alcance por escrito antes de iniciar el proyecto.'}</li>
+				<li>{lang === 'en' ? 'Comply with agreed payment milestones and terms.' : 'Cumplir con hitos de pago y términos acordados.'}</li>
+			</ul>
+
+			<h2 class="mt-10 text-2xl font-bold text-slate-50">{lang === 'en' ? '4. Limitations of Liability' : '4. Limitación de responsabilidad'}</h2>
+			<p class="mt-3 text-slate-400">
+				{lang === 'en'
+					? 'To the extent permitted by law, Wise Energy Pros is not liable for indirect or consequential damages. Service commitments and workmanship terms are limited to what is explicitly stated in writing.'
+					: 'En la medida permitida por la ley, Wise Energy Pros no será responsable por daños indirectos o consecuentes. Los compromisos de servicio y términos de mano de obra se limitan a lo expresamente establecido por escrito.'}
+			</p>
+
+			<h2 class="mt-10 text-2xl font-bold text-slate-50">{lang === 'en' ? '5. Governing Law and Updates' : '5. Ley aplicable y actualizaciones'}</h2>
+			<p class="mt-3 text-slate-400">
+				{lang === 'en'
+					? 'These terms are governed by applicable Utah law. We may update these terms at any time, and updated versions will be posted on this page.'
+					: 'Estos términos se rigen por la legislación aplicable de Utah. Podemos actualizar estos términos en cualquier momento y las versiones actualizadas se publicarán en esta página.'}
+			</p>
+
+			<h2 class="mt-10 text-2xl font-bold text-slate-50">{lang === 'en' ? '6. Contact' : '6. Contacto'}</h2>
+			<p class="mt-3 text-slate-400">
+				{lang === 'en' ? 'For questions regarding these terms, contact' : 'Para consultas sobre estos términos, contacte a'}
+				{' '}
+				<a href="mailto:intake@wiseenergypros.com" class="font-medium text-cyan-300 transition-colors duration-300 hover:text-cyan-200">intake@wiseenergypros.com</a>.
+			</p>
+		</div>
+	</section>
+</Layout>
