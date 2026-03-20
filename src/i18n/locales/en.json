@@ -1,0 +1,379 @@
+{
+  "brand": "Wise Energy Pros",
+  "language": {
+    "en": "EN",
+    "es": "ES"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "meta": {
+    "home": {
+      "title": "Wise Energy Pros | Home",
+      "description": "Premium electrical modernization for homes and facilities in the United States."
+    },
+    "services": {
+      "title": "Wise Energy Pros | Services",
+      "description": "Explore NEC-focused electrical services for panel upgrades, maintenance, and compliance in the US."
+    },
+    "about": {
+      "title": "Wise Energy Pros | About",
+      "description": "Learn how Wise Energy Pros delivers high-standard electrical engineering outcomes across the US."
+    },
+    "contact": {
+      "title": "Wise Energy Pros | Contact",
+      "description": "Get in touch for electrical modernization, inspections, and maintenance services."
+    }
+  },
+  "home": {
+    "heroTitle": "Smart Electrical Solutions for Modern Living",
+    "heroDescription": "Future-ready power upgrades, high-performance maintenance, and NEC-aligned execution for homes and commercial properties across the United States.",
+    "heroPrimaryCta": "Get a Quote",
+    "heroSecondaryCta": "Contact Us",
+    "heroSlider": {
+      "ariaLabel": "Homepage hero highlights",
+      "previous": "Previous slide",
+      "next": "Next slide",
+      "goTo": "Go to slide",
+      "slides": [
+        {
+          "title": "Smart Electrical Solutions",
+          "subtitle": "Residential and commercial services.",
+          "cta": "Get a Free Quote",
+          "href": "/contact",
+          "video": "https://cdn.coverr.co/videos/coverr-electrical-panel-maintenance-1579/1080p.mp4",
+          "poster": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=80"
+        },
+        {
+          "title": "Upgrade Your Electrical System",
+          "subtitle": "Safe, modern, and efficient installations.",
+          "cta": "View Services",
+          "href": "/services",
+          "video": "https://cdn.coverr.co/videos/coverr-engineer-checking-cables-5175/1080p.mp4",
+          "poster": "https://images.unsplash.com/photo-1581092160607-ee22731d8bd2?auto=format&fit=crop&w=1600&q=80"
+        },
+        {
+          "title": "Trusted Electrical Experts",
+          "subtitle": "Reliable maintenance and repairs.",
+          "cta": "Contact Us",
+          "href": "/contact",
+          "video": "https://cdn.coverr.co/videos/coverr-electrician-at-work-1578/1080p.mp4",
+          "poster": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1600&q=80"
+        }
+      ]
+    },
+    "servicesTitle": "Core Electrical Services",
+    "servicesSection": {
+      "heading": "Our Services",
+      "items": [
+        {
+          "title": "Electrical Installation",
+          "description": "Code-compliant installations engineered for efficiency, resilience, and future load growth.",
+          "icon": "installation"
+        },
+        {
+          "title": "Maintenance",
+          "description": "Preventive and corrective maintenance that keeps your electrical infrastructure reliable.",
+          "icon": "maintenance"
+        },
+        {
+          "title": "Panel Upgrades",
+          "description": "High-capacity panel upgrades for modern demand, EV readiness, and safer distribution.",
+          "icon": "panel"
+        },
+        {
+          "title": "Old System Renovation",
+          "description": "Strategic modernization of legacy wiring and panels to current NEC standards.",
+          "icon": "renovation"
+        },
+        {
+          "title": "EV Charger Installation",
+          "description": "Smart EV charger deployments with correct circuit sizing and secure long-term performance.",
+          "icon": "ev"
+        }
+      ]
+    },
+    "trustBadges": {
+      "heading": "Trusted by Homeowners and Facility Managers",
+      "badgeLabel": "Verified",
+      "items": [
+        {
+          "title": "NEC Compliant",
+          "description": "Every project follows current US code requirements and inspection-ready standards."
+        },
+        {
+          "title": "4.9 Average Rating",
+          "description": "Consistently top-reviewed for reliability, communication, and clean workmanship."
+        },
+        {
+          "title": "Licensed & Insured",
+          "description": "Certified professionals with full coverage for residential and commercial projects."
+        }
+      ]
+    },
+    "quickQuote": {
+      "heading": "Get a Quick Quote in Under 2 Minutes",
+      "subheading": "Tell us your project scope and we will send a same-day estimate.",
+      "namePlaceholder": "Full Name",
+      "phonePlaceholder": "Phone Number",
+      "servicePlaceholder": "Service Type",
+      "detailsPlaceholder": "Project Details",
+      "submit": "Request My Quote"
+    },
+    "gallery": {
+      "heading": "Recent Electrical Transformations",
+      "projects": [
+        {
+          "title": "Luxury Home Panel Overhaul",
+          "sector": "Residential",
+          "location": "Austin, TX",
+          "summary": "Replaced an outdated split-bus panel with a modern 200A service, improving reliability and expansion capacity.",
+          "beforeImage": "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1200&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1621905252472-943afaa20e5f?auto=format&fit=crop&w=1200&q=80"
+        },
+        {
+          "title": "Retail Lighting & Circuit Upgrade",
+          "sector": "Commercial",
+          "location": "Phoenix, AZ",
+          "summary": "Renovated branch circuits and converted legacy fixtures to efficient smart-controlled LED systems.",
+          "beforeImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1581092921461-eab10380d3d0?auto=format&fit=crop&w=1200&q=80"
+        },
+        {
+          "title": "EV-Ready Multi-Unit Retrofit",
+          "sector": "Residential",
+          "location": "San Diego, CA",
+          "summary": "Upgraded load distribution and installed dedicated EV charging circuits for a multi-unit property.",
+          "beforeImage": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80"
+        },
+        {
+          "title": "Office Safety Compliance Modernization",
+          "sector": "Commercial",
+          "location": "Denver, CO",
+          "summary": "Corrected grounding deficiencies, reorganized panels, and delivered a clean inspection-ready electrical room.",
+          "beforeImage": "https://images.unsplash.com/photo-1581092160607-ee22731d8bd2?auto=format&fit=crop&w=1200&q=80",
+          "afterImage": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1200&q=80"
+        }
+      ]
+    },
+    "whyChoose": {
+      "heading": "Why Homeowners and Businesses Choose Us",
+      "items": [
+        {
+          "title": "Code-First Execution",
+          "description": "Every installation, repair, and upgrade is delivered with strict NEC-compliant quality standards."
+        },
+        {
+          "title": "Rapid Response Team",
+          "description": "We prioritize urgent electrical issues with clear communication and predictable response windows."
+        },
+        {
+          "title": "Long-Term Reliability",
+          "description": "Our systems are engineered for safety, capacity growth, and lower failure risk over time."
+        }
+      ]
+    },
+    "testimonials": {
+      "heading": "What Clients Say",
+      "sourceLabel": "Verified Google Review",
+      "location": "Utah, USA",
+      "items": [
+        {
+          "name": "Megan Carter",
+          "location": "Salt Lake City, UT",
+          "quote": "They handled our panel upgrade and new kitchen circuit installation in one day. The crew was organized, explained everything clearly, and left the workspace spotless.",
+          "avatar": "https://i.pravatar.cc/120?img=21"
+        },
+        {
+          "name": "Ryan Mitchell",
+          "location": "Provo, UT",
+          "quote": "We called for recurring breaker trips and they diagnosed the issue quickly. The repair was done right the first time and everything has been stable since.",
+          "avatar": "https://i.pravatar.cc/120?img=12"
+        },
+        {
+          "name": "Lauren Hayes",
+          "location": "Ogden, UT",
+          "quote": "Their maintenance visit caught a worn connection before it became a bigger problem. Very professional team and easy scheduling process.",
+          "avatar": "https://i.pravatar.cc/120?img=45"
+        },
+        {
+          "name": "Brandon Lewis",
+          "location": "St. George, UT",
+          "quote": "We hired them for a full lighting installation and the results look fantastic. They stayed on timeline and the pricing was exactly what they quoted.",
+          "avatar": "https://i.pravatar.cc/120?img=33"
+        },
+        {
+          "name": "Courtney Brooks",
+          "location": "West Jordan, UT",
+          "quote": "Our EV charger installation was smooth from permitting to final testing. They also balanced the load on our panel so we’re ready for future upgrades.",
+          "avatar": "https://i.pravatar.cc/120?img=47"
+        },
+        {
+          "name": "Tyler Jensen",
+          "location": "Lehi, UT",
+          "quote": "Needed urgent repairs after a storm and they showed up fast. Clear communication, safe workmanship, and no surprises on the invoice.",
+          "avatar": "https://i.pravatar.cc/120?img=14"
+        },
+        {
+          "name": "Emily Parker",
+          "location": "Park City, UT",
+          "quote": "We use their team for scheduled maintenance across two properties. They’re reliable, thorough, and always document what was serviced.",
+          "avatar": "https://i.pravatar.cc/120?img=32"
+        }
+      ]
+    },
+    "finalCta": {
+      "heading": "Ready to Upgrade Your Electrical System?",
+      "subheading": "Get a same-day response and a clear project roadmap from certified professionals.",
+      "primary": "Start My Project",
+      "secondary": "Talk to an Expert"
+    },
+    "contactSection": {
+      "heading": "Contact Wise Energy Pros",
+      "intro": "Tell us your needs and get a fast, practical recommendation.",
+      "callNow": "Call Now",
+      "whatsapp": "Chat on WhatsApp",
+      "mapTitle": "Coverage Across the United States",
+      "form": {
+        "name": "Full Name",
+        "phone": "Phone Number",
+        "service": "Service Needed",
+        "message": "Project Message",
+        "submit": "Send Request"
+      }
+    }
+  },
+  "conversion": {
+    "callNow": "Call",
+    "whatsapp": "WhatsApp",
+    "floatingContact": "Contact",
+    "getQuote": "Get a Quote",
+    "freeEstimate": "Free Estimate"
+  },
+  "forms": {
+    "fields": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "service": "Service Needed",
+      "message": "Project Message"
+    },
+    "phoneHelper": "Use a valid US number format: (555) 123-4567",
+    "requiredConsentPrefix": "I agree to the",
+    "consentJoiner": "and",
+    "privacyPolicy": "Privacy Policy",
+    "termsAndConditions": "Terms & Conditions",
+    "optionalConsent": "I agree to be contacted via phone, email, or SMS",
+    "errors": {
+      "required": "This field is required.",
+      "invalidEmail": "Please enter a valid email address.",
+      "invalidPhone": "Please enter a valid 10-digit US phone number.",
+      "requiredConsent": "You must accept the Privacy Policy and Terms & Conditions.",
+      "submitFailed": "Something went wrong. Please try again."
+    },
+    "submitLoading": "Sending...",
+    "submitSuccess": "Thanks. Your request was sent successfully."
+  },
+  "services": {
+    "heading": "Electrical Services Built for Reliability",
+    "intro": "We deliver premium electrical modernization programs for residential and commercial assets, engineered for safety, performance, and long-term expansion.",
+    "cards": {
+      "panel": {
+        "title": "Service Panel Modernization",
+        "description": "High-capacity replacements for legacy infrastructure, including load studies and expansion planning."
+      },
+      "nec": {
+        "title": "NEC Compliance Program",
+        "description": "Comprehensive field inspections, risk documentation, and corrective roadmaps aligned with US codes."
+      },
+      "maintenance": {
+        "title": "Critical Maintenance",
+        "description": "Preventive diagnostics and thermal verification for mission-critical circuits and branch distribution."
+      },
+      "integration": {
+        "title": "Smart System Integration",
+        "description": "Structured upgrades for lighting control, backup continuity, and modern connected environments."
+      }
+    }
+  },
+  "about": {
+    "heading": "About Wise Energy Pros",
+    "intro": "We are a US-focused electrical modernization team built around precision execution, strict safety standards, and premium client outcomes."
+  },
+  "contact": {
+    "heading": "Contact Our Engineering Team",
+    "intro": "Tell us your goals and we will send back a clear recommendation fast.",
+    "channelsTitle": "Contact Channels",
+    "quickActionsTitle": "Get Help Right Now",
+    "quickActionsSubtitle": "Choose the fastest way to talk with our team.",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "coverageLabel": "Coverage",
+    "coverageValue": "United States",
+    "mapTitle": "Service Coverage Map",
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "service": "Service Needed",
+      "message": "Project Message",
+      "submit": "Get My Fast Quote"
+    }
+  },
+  "footer": {
+    "description": "Wise Energy Pros delivers modern, code-compliant electrical services for residential and commercial properties across the United States.",
+    "trust": {
+      "heading": "Trusted Standards",
+      "badges": {
+        "certifications": "Licensed & Insured",
+        "experience": "15+ Years of Experience",
+        "satisfaction": "4.9/5 Customer Satisfaction"
+      }
+    },
+    "lead": {
+      "heading": "Request a Free Quote",
+      "subheading": "Get a same-day response from our licensed electrical team.",
+      "call": "Call Now",
+      "whatsapp": "WhatsApp",
+      "quote": "Request a Free Quote",
+      "form": {
+        "name": "Name",
+        "phone": "Phone",
+        "submit": "Send"
+      }
+    },
+    "servicesTitle": "Services",
+    "quickLinksTitle": "Quick Links",
+    "contactTitle": "Contact",
+    "contactLabels": {
+      "phone": "Phone",
+      "email": "Email",
+      "location": "Location"
+    },
+    "servicesLinks": {
+      "installation": "Electrical Installation",
+      "maintenance": "Maintenance",
+      "panelUpgrades": "Panel Upgrades",
+      "renovation": "Old System Renovation",
+      "evChargers": "EV Charger Installation"
+    },
+    "quickLinks": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "location": "United States",
+    "social": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "copyright": "© Wise Energy Pros. All rights reserved."
+  }
+}

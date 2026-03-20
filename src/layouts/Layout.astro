@@ -1,0 +1,367 @@
+---
+import '../styles/global.css';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import ValidatedLeadForm from '../components/ValidatedLeadForm';
+import { defaultLocale, getDictionary, isLocale, localizedPath, normalizeRoute } from '../i18n';
+
+export interface Props {
+	title: string;
+	description: string;
+	lang: string;
+}
+
+const { title, description, lang } = Astro.props;
+const currentLocale = isLocale(lang) ? lang : defaultLocale;
+const dictionary = getDictionary(currentLocale);
+const currentPath = normalizeRoute(Astro.url.pathname);
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString();
+const homeUrl = localizedPath(currentLocale, '/');
+const projectsUrl = `${homeUrl}#projects`;
+const navLinks = [
+	{ href: homeUrl, label: dictionary.nav.home },
+	{ href: localizedPath(currentLocale, '/services'), label: dictionary.nav.services },
+	{ href: localizedPath(currentLocale, '/about'), label: dictionary.nav.about },
+	{ href: projectsUrl, label: dictionary.nav.projects },
+	{ href: localizedPath(currentLocale, '/contact'), label: dictionary.nav.contact },
+];
+const contactPhoneDisplay = '+1 (800) 555-0145';
+const contactPhoneDial = '+18005550145';
+const whatsappUrl = `https://wa.me/18005550145?text=${encodeURIComponent('Hi Wise Energy Pros, I would like a quote.')}`;
+const localizedContactUrl = localizedPath(currentLocale, '/contact');
+const footerServiceLinks = [
+	{ label: dictionary.footer.servicesLinks.installation, href: localizedPath(currentLocale, '/services') },
+	{ label: dictionary.footer.servicesLinks.maintenance, href: localizedPath(currentLocale, '/services') },
+	{ label: dictionary.footer.servicesLinks.panelUpgrades, href: localizedPath(currentLocale, '/services') },
+	{ label: dictionary.footer.servicesLinks.renovation, href: localizedPath(currentLocale, '/services') },
+	{ label: dictionary.footer.servicesLinks.evChargers, href: localizedPath(currentLocale, '/services') },
+];
+const footerQuickLinks = [
+	{ label: dictionary.footer.quickLinks.home, href: homeUrl },
+	{ label: dictionary.footer.quickLinks.services, href: localizedPath(currentLocale, '/services') },
+	{ label: dictionary.footer.quickLinks.about, href: localizedPath(currentLocale, '/about') },
+	{ label: dictionary.footer.quickLinks.projects, href: projectsUrl },
+	{ label: dictionary.footer.quickLinks.contact, href: localizedPath(currentLocale, '/contact') },
+];
+---
+
+<!doctype html>
+<html lang={currentLocale}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="index,follow" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="en" href={localizedPath('en', currentPath)} />
+		<link rel="alternate" hreflang="es" href={localizedPath('es', currentPath)} />
+		<link rel="alternate" hreflang="x-default" href={localizedPath(defaultLocale, currentPath)} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-slate-950 text-slate-50">
+		<header class="fixed top-0 left-0 right-0 z-50 px-4 pt-3 animate-in fade-in slide-in-from-top-2 duration-500 md:px-6" data-site-header>
+			<nav class="container mx-auto rounded-2xl border border-transparent bg-transparent px-4 py-3 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out md:px-6" data-header-surface>
+				<div class="flex items-center justify-between">
+				<a href={homeUrl} class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text md:text-2xl">
+					{dictionary.brand}
+				</a>
+				<div class="hidden items-center gap-4 md:flex">
+					<div class="flex items-center gap-1 rounded-xl border border-slate-800 bg-slate-950/70 p-1 text-sm font-semibold">
+						{navLinks.map((link) => (
+							<a href={link.href} class="rounded-lg px-3 py-1.5 text-slate-300 transition-all duration-300 hover:-translate-y-px hover:bg-blue-600 hover:text-slate-50">
+								{link.label}
+							</a>
+						))}
+					</div>
+					<LanguageSwitcher currentLocale={currentLocale} currentPath={currentPath} labels={dictionary.language} />
+					<a href={`tel:${contactPhoneDial}`} class="hidden items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 px-4 py-2 text-sm font-semibold text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400 xl:inline-flex">
+						{contactPhoneDisplay}
+					</a>
+					<a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-400/60 bg-cyan-400/10 text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20" aria-label={dictionary.conversion.whatsapp}>
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4">
+							<path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v7.4a2.8 2.8 0 0 1-2.8 2.8H9l-5 3V6.8Z" />
+						</svg>
+					</a>
+					<a href={localizedContactUrl} class="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-extrabold text-slate-50 shadow-[0_0_20px_rgba(37,99,235,0.45)] ring-1 ring-blue-400/40 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-blue-500 hover:shadow-[0_0_24px_rgba(34,211,238,0.35)]">
+						{dictionary.conversion.freeEstimate}
+					</a>
+				</div>
+				<button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-800 bg-slate-950/70 text-slate-200 transition-all duration-300 hover:border-cyan-400/70 hover:text-cyan-400 md:hidden" aria-label="Open menu" data-mobile-toggle>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
+						<path d="M4 7h16M4 12h16M4 17h16" />
+					</svg>
+				</button>
+				</div>
+			</nav>
+			<div class="fixed inset-0 z-[70] hidden bg-slate-950/95 backdrop-blur-md md:hidden" data-mobile-overlay>
+				<div class="flex h-full flex-col p-5">
+					<div class="flex items-center justify-between">
+						<a href={homeUrl} class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text" data-mobile-link>
+							{dictionary.brand}
+						</a>
+						<button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 bg-slate-900/80 text-slate-100 transition-all duration-300 hover:border-cyan-400/70 hover:text-cyan-400" aria-label="Close menu" data-mobile-close>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
+								<path d="m6 6 12 12M18 6 6 18" />
+							</svg>
+						</button>
+					</div>
+					<div class="flex flex-1 flex-col items-center justify-center" data-mobile-panel>
+						<nav class="flex flex-col items-center gap-4">
+							{navLinks.map((link) => (
+								<a href={link.href} class="text-2xl font-bold text-slate-100 transition-all duration-300 hover:translate-x-1 hover:text-cyan-400" data-mobile-link>
+									{link.label}
+								</a>
+							))}
+						</nav>
+						<div class="mt-8 grid w-full max-w-xs gap-3">
+							<a href={`tel:${contactPhoneDial}`} class="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-sm font-semibold text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400" data-mobile-link>
+								{dictionary.conversion.callNow}
+							</a>
+							<a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-xl border border-cyan-400/60 bg-cyan-400/10 px-4 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20" data-mobile-link>
+								{dictionary.conversion.whatsapp}
+							</a>
+						</div>
+						<a href={localizedContactUrl} class="mt-4 inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3.5 text-base font-extrabold text-slate-50 shadow-[0_0_20px_rgba(37,99,235,0.45)] ring-1 ring-blue-400/40 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-blue-500" data-mobile-link>
+							{dictionary.conversion.freeEstimate}
+						</a>
+						<LanguageSwitcher currentLocale={currentLocale} currentPath={currentPath} labels={dictionary.language} variant="mobile" />
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="pt-24 pb-24">
+			<slot />
+		</main>
+		<footer class="relative overflow-hidden border-t border-slate-800 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900/80">
+			<div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
+			<div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.08),_transparent_45%),radial-gradient(circle_at_bottom_right,_rgba(37,99,235,0.1),_transparent_40%)]"></div>
+			<div class="container relative mx-auto px-6 pt-12">
+				<div class="grid grid-cols-1 gap-6 rounded-3xl border border-slate-800/90 bg-slate-900/40 p-6 backdrop-blur-md transition-all duration-500 hover:border-cyan-400/40 lg:grid-cols-3 lg:items-center lg:p-8">
+					<div class="lg:col-span-2">
+						<h2 class="text-2xl font-extrabold text-slate-50 md:text-3xl">{dictionary.footer.lead.heading}</h2>
+						<p class="mt-3 max-w-2xl text-slate-400">{dictionary.footer.lead.subheading}</p>
+						<div class="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+							<a href={localizedContactUrl} class="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-extrabold text-slate-50 shadow-[0_0_20px_rgba(37,99,235,0.45)] ring-1 ring-blue-400/40 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.01] hover:bg-blue-500">
+								{dictionary.footer.lead.quote}
+							</a>
+							<a href={`tel:${contactPhoneDial}`} class="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 px-6 py-3 text-sm font-semibold text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400">
+								{dictionary.footer.lead.call}
+							</a>
+							<a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-cyan-400/60 bg-cyan-400/10 px-6 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20">
+								{dictionary.footer.lead.whatsapp}
+							</a>
+						</div>
+					</div>
+					<div class="rounded-2xl border border-slate-800 bg-slate-950/80 p-4">
+						<ValidatedLeadForm
+							client:load
+							strings={dictionary.forms}
+							submitLabel={dictionary.footer.lead.form.submit}
+							showService={false}
+							showMessage={false}
+							compact={true}
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="container relative mx-auto px-6 pt-8">
+				<div class="rounded-2xl border border-slate-800/90 bg-slate-900/35 p-5 backdrop-blur-md">
+					<p class="text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-400">{dictionary.footer.trust.heading}</p>
+					<div class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3">
+						<div class="rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 text-center text-sm font-semibold text-slate-200 transition-all duration-300 hover:border-cyan-400/60 hover:text-cyan-400">
+							{dictionary.footer.trust.badges.certifications}
+						</div>
+						<div class="rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 text-center text-sm font-semibold text-slate-200 transition-all duration-300 hover:border-cyan-400/60 hover:text-cyan-400">
+							{dictionary.footer.trust.badges.experience}
+						</div>
+						<div class="rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 text-center text-sm font-semibold text-slate-200 transition-all duration-300 hover:border-cyan-400/60 hover:text-cyan-400">
+							{dictionary.footer.trust.badges.satisfaction}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container relative mx-auto grid grid-cols-1 gap-10 px-6 py-14 md:grid-cols-2 xl:grid-cols-4">
+				<div>
+					<a href={homeUrl} class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text">
+						{dictionary.brand}
+					</a>
+					<p class="mt-4 max-w-sm text-slate-400">{dictionary.footer.description}</p>
+					<div class="mt-5 flex items-center gap-3">
+						<a href="https://facebook.com" target="_blank" rel="noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-400" aria-label={dictionary.footer.social.facebook}>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4">
+								<path d="M13 21v-8h3l.5-3H13V8.5c0-.9.3-1.5 1.5-1.5H17V4h-2.6C11.5 4 10 5.7 10 8.4V10H7v3h3v8h3Z" />
+							</svg>
+						</a>
+						<a href="https://instagram.com" target="_blank" rel="noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-400" aria-label={dictionary.footer.social.instagram}>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4">
+								<rect x="3.5" y="3.5" width="17" height="17" rx="4" />
+								<circle cx="12" cy="12" r="3.5" />
+								<circle cx="17.5" cy="6.5" r="0.6" />
+							</svg>
+						</a>
+						<a href="https://linkedin.com" target="_blank" rel="noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-400" aria-label={dictionary.footer.social.linkedin}>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4">
+								<path d="M7 10v7M7 7.5v.1M11 17v-4.2c0-1.7 1.1-2.8 2.5-2.8S16 11 16 12.7V17M4 17h16" />
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div>
+					<h3 class="text-sm font-bold uppercase tracking-wider text-slate-50">{dictionary.footer.servicesTitle}</h3>
+					<ul class="mt-4 space-y-2">
+						{footerServiceLinks.map((item) => (
+							<li><a href={item.href} class="text-slate-400 transition-all duration-300 hover:translate-x-0.5 hover:text-cyan-400">{item.label}</a></li>
+						))}
+					</ul>
+				</div>
+				<div>
+					<h3 class="text-sm font-bold uppercase tracking-wider text-slate-50">{dictionary.footer.quickLinksTitle}</h3>
+					<ul class="mt-4 space-y-2">
+						{footerQuickLinks.map((item) => (
+							<li><a href={item.href} class="text-slate-400 transition-all duration-300 hover:translate-x-0.5 hover:text-cyan-400">{item.label}</a></li>
+						))}
+					</ul>
+				</div>
+				<div>
+					<h3 class="text-sm font-bold uppercase tracking-wider text-slate-50">{dictionary.footer.contactTitle}</h3>
+					<ul class="mt-4 space-y-2 text-slate-400">
+						<li>{dictionary.footer.contactLabels.phone}: <a href={`tel:${contactPhoneDial}`} class="transition-colors duration-300 hover:text-cyan-400">{contactPhoneDisplay}</a></li>
+						<li>{dictionary.footer.contactLabels.email}: <a href="mailto:intake@wiseenergypros.com" class="transition-colors duration-300 hover:text-cyan-400">intake@wiseenergypros.com</a></li>
+						<li>{dictionary.footer.contactLabels.location}: {dictionary.footer.location}</li>
+					</ul>
+				</div>
+			</div>
+			<div class="border-t border-slate-800/80 py-5">
+				<p class="text-center text-xs text-slate-500">{dictionary.footer.copyright}</p>
+			</div>
+		</footer>
+		<a
+			href={localizedContactUrl}
+			class="fixed bottom-24 right-4 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-900/85 text-cyan-400 shadow-[0_0_24px_rgba(34,211,238,0.25)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-slate-50"
+			aria-label={dictionary.conversion.floatingContact}
+		>
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
+				<path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v7.4a2.8 2.8 0 0 1-2.8 2.8H9l-5 3V6.8Z" />
+			</svg>
+		</a>
+		<div class="fixed inset-x-0 bottom-0 z-50 border-t border-slate-800 bg-slate-900/90 p-3 backdrop-blur-md">
+			<div class="container mx-auto flex items-center gap-3">
+				<a href={`tel:${contactPhoneDial}`} class="inline-flex flex-1 items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-slate-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500">
+					{dictionary.conversion.callNow}
+				</a>
+				<a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex flex-1 items-center justify-center rounded-xl border border-cyan-400/60 bg-cyan-400/10 px-4 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20">
+					{dictionary.conversion.whatsapp}
+				</a>
+			</div>
+			<p class="mt-2 text-center text-xs text-slate-400">{contactPhoneDisplay}</p>
+		</div>
+		<script is:inline>
+			const localeStorageKey = 'wise-energy-pros:locale';
+			const htmlLang = document.documentElement.lang;
+			if (htmlLang) {
+				localStorage.setItem(localeStorageKey, htmlLang);
+			}
+			const switchLinks = document.querySelectorAll('[data-locale-switch]');
+			switchLinks.forEach((link) => {
+				link.addEventListener('click', () => {
+					const locale = link.getAttribute('data-locale');
+					if (locale) {
+						localStorage.setItem(localeStorageKey, locale);
+					}
+				});
+			});
+			const headerSurface = document.querySelector('[data-header-surface]');
+			const updateHeaderSurface = () => {
+				if (!headerSurface) {
+					return;
+				}
+				const isScrolled = window.scrollY > 12;
+				headerSurface.classList.toggle('bg-slate-950/88', isScrolled);
+				headerSurface.classList.toggle('border-slate-800', isScrolled);
+				headerSurface.classList.toggle('backdrop-blur-md', isScrolled);
+				headerSurface.classList.toggle('shadow-[0_12px_28px_rgba(2,6,23,0.32)]', isScrolled);
+				headerSurface.classList.toggle('bg-transparent', !isScrolled);
+				headerSurface.classList.toggle('border-transparent', !isScrolled);
+			};
+			updateHeaderSurface();
+			window.addEventListener('scroll', updateHeaderSurface, { passive: true });
+			const mobileToggle = document.querySelector('[data-mobile-toggle]');
+			const mobileOverlay = document.querySelector('[data-mobile-overlay]');
+			const mobilePanel = document.querySelector('[data-mobile-panel]');
+			const mobileClose = document.querySelector('[data-mobile-close]');
+			const mobileLinks = document.querySelectorAll('[data-mobile-link]');
+			const openMobileMenu = () => {
+				if (!mobileOverlay || !mobilePanel) {
+					return;
+				}
+				if (!mobileOverlay.classList.contains('hidden')) {
+					return;
+				}
+				document.body.classList.add('overflow-hidden');
+				mobileOverlay.classList.remove('hidden');
+				mobileOverlay.classList.remove('animate-out', 'fade-out', 'duration-200');
+				mobileOverlay.classList.add('animate-in', 'fade-in', 'duration-300');
+				mobilePanel.classList.remove('animate-out', 'slide-out-to-top', 'duration-200');
+				mobilePanel.classList.add('animate-in', 'slide-in-from-top', 'duration-300');
+			};
+			const closeMobileMenu = () => {
+				if (!mobileOverlay || !mobilePanel) {
+					return;
+				}
+				document.body.classList.remove('overflow-hidden');
+				mobileOverlay.classList.remove('animate-in', 'fade-in', 'duration-300');
+				mobileOverlay.classList.add('animate-out', 'fade-out', 'duration-200');
+				mobilePanel.classList.remove('animate-in', 'slide-in-from-top', 'duration-300');
+				mobilePanel.classList.add('animate-out', 'slide-out-to-top', 'duration-200');
+				window.setTimeout(() => {
+					mobileOverlay.classList.add('hidden');
+				}, 180);
+			};
+			mobileToggle?.addEventListener('click', openMobileMenu);
+			mobileClose?.addEventListener('click', closeMobileMenu);
+			mobileLinks.forEach((link) => {
+				link.addEventListener('click', () => {
+					closeMobileMenu();
+				});
+			});
+			window.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape') {
+					closeMobileMenu();
+				}
+			});
+			const revealObserver = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (!entry.isIntersecting) {
+							return;
+						}
+						const element = entry.target;
+						element.classList.remove('opacity-0', 'translate-y-4');
+						element.classList.add('animate-in', 'fade-in', 'slide-in-from-bottom-3', 'duration-700');
+						if (element.hasAttribute('data-stagger-parent')) {
+							const staggerItems = element.querySelectorAll('[data-stagger-item]');
+							staggerItems.forEach((item, index) => {
+								const delay = `${index * 110}ms`;
+								item.setAttribute('style', `animation-delay:${delay}`);
+								item.classList.remove('opacity-0', 'translate-y-3');
+								item.classList.add('animate-in', 'fade-in', 'slide-in-from-bottom-3', 'duration-700');
+							});
+						}
+						revealObserver.unobserve(element);
+					});
+				},
+				{ threshold: 0.2, rootMargin: '0px 0px -60px 0px' }
+			);
+			const revealTargets = document.querySelectorAll('[data-reveal]');
+			revealTargets.forEach((target) => revealObserver.observe(target));
+		</script>
+	</body>
+</html>

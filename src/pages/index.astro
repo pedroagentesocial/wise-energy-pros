@@ -1,0 +1,19 @@
+---
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="refresh" content="0;url=/en" />
+		<title>Wise Energy Pros</title>
+	</head>
+	<body class="bg-slate-950">
+		<script is:inline>
+			const localeStorageKey = 'wise-energy-pros:locale';
+			const locale = localStorage.getItem(localeStorageKey) || 'en';
+			const target = locale === 'es' ? '/es' : '/en';
+			window.location.replace(target);
+		</script>
+	</body>
+</html>

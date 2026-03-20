@@ -1,0 +1,25 @@
+---
+import { getDictionary, isLocale, locales } from '../../i18n';
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = () => {
+	return locales.map((lang) => ({
+		params: { lang },
+	}));
+};
+
+const lang = Astro.params.lang ?? 'en';
+if (!isLocale(lang)) {
+	throw new Error('Unsupported locale');
+}
+const t = getDictionary(lang);
+---
+
+<Layout title={t.meta.about.title} description={t.meta.about.description} lang={lang}>
+	<section class="bg-slate-950 py-20">
+		<div class="container mx-auto px-6 opacity-0 translate-y-4" data-reveal>
+			<h1 class="text-4xl font-extrabold text-slate-50 md:text-5xl">{t.about.heading}</h1>
+			<p class="mt-4 max-w-3xl text-slate-400">{t.about.intro}</p>
+		</div>
+	</section>
+</Layout>

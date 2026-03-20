@@ -1,0 +1,37 @@
+---
+import { locales, localizedPath, type Locale } from '../i18n';
+
+interface Props {
+	currentLocale: Locale;
+	currentPath: string;
+	labels: Record<string, string>;
+	variant?: 'desktop' | 'mobile';
+}
+
+const { currentLocale, currentPath, labels, variant = 'desktop' } = Astro.props;
+const isDesktop = variant === 'desktop';
+---
+
+<div class:list={[
+	isDesktop
+		? 'flex items-center gap-1 rounded-xl border border-slate-800 bg-slate-950/70 p-1 text-xs font-bold'
+		: 'mt-6 flex items-center gap-1 rounded-xl border border-slate-700 bg-slate-900/70 p-1 text-xs font-bold',
+]}>
+	{locales.map((locale) => (
+		<a
+			href={localizedPath(locale, currentPath)}
+			data-locale-switch
+			data-mobile-link={isDesktop ? undefined : 'true'}
+			data-locale={locale}
+			class:list={[
+				'rounded-lg px-3 py-1.5 transition-all duration-300',
+				locale === currentLocale
+					? 'bg-blue-600 text-slate-50 shadow-[0_0_14px_rgba(37,99,235,0.45)]'
+					: 'text-slate-300 hover:bg-blue-600 hover:text-slate-50',
+			]}
+			aria-current={locale === currentLocale ? 'true' : undefined}
+		>
+			{labels[locale] ?? locale.toUpperCase()}
+		</a>
+	))}
+</div>
