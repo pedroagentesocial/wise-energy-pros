@@ -5,6 +5,7 @@ import type { LeadFormStrings, LeadFormSubmitHandler, LeadFormValues } from './t
 
 type UseLeadFormValidationParams = {
   strings: LeadFormStrings;
+  showProjectType: boolean;
   showService: boolean;
   showMessage: boolean;
   submitHandler?: LeadFormSubmitHandler;
@@ -14,12 +15,14 @@ const initialValues: LeadFormValues = {
   name: '',
   email: '',
   phone: '',
+  projectType: '',
   service: '',
   message: '',
 };
 
 export const useLeadFormValidation = ({
   strings,
+  showProjectType,
   showService,
   showMessage,
   submitHandler,
@@ -33,8 +36,8 @@ export const useLeadFormValidation = ({
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const errors = useMemo(
-    () => validateLeadForm(values, requiredConsent, strings, showService, showMessage),
-    [requiredConsent, showMessage, showService, strings, values]
+    () => validateLeadForm(values, requiredConsent, strings, showProjectType, showService, showMessage),
+    [requiredConsent, showMessage, showProjectType, showService, strings, values]
   );
 
   const isValid = Object.keys(errors).length === 0;
@@ -55,6 +58,7 @@ export const useLeadFormValidation = ({
       name: true,
       email: true,
       phone: true,
+      projectType: true,
       service: true,
       message: true,
       requiredConsent: true,
@@ -65,7 +69,7 @@ export const useLeadFormValidation = ({
 
   const submit = async () => {
     touchAll();
-    const strictErrors = validateLeadForm(values, requiredConsent, strings, showService, showMessage);
+    const strictErrors = validateLeadForm(values, requiredConsent, strings, showProjectType, showService, showMessage);
     if (Object.keys(strictErrors).length > 0 || submitting) {
       return false;
     }

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 type WhyChooseItem = {
   title: string;
   description: string;
-  icon: 'licensed' | 'fast' | 'technicians' | 'pricing' | 'materials' | 'satisfaction';
+  icon: 'licensed' | 'fast' | 'technicians' | 'multiSector' | 'pricing' | 'materials' | 'satisfaction';
 };
 
 type WhyChooseGridProps = {
@@ -45,6 +45,14 @@ const WhyChooseIcon = ({ icon }: { icon: WhyChooseItem['icon'] }) => {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={iconClasses}>
         <rect x="4" y="5" width="16" height="14" rx="2.2" />
         <path d="M8 10h8M8 14h5" />
+      </svg>
+    );
+  }
+  if (icon === 'multiSector') {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={iconClasses}>
+        <path d="M4 20h16M6 20V9l6-4 6 4v11" />
+        <path d="M8 13h8M12 9v8" />
       </svg>
     );
   }

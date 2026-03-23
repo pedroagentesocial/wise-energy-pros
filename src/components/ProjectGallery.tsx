@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import SectorBadge, { resolveSectorKey } from './SectorBadge';
 
 type GalleryProject = {
   title: string;
@@ -90,7 +91,10 @@ const ProjectGallery = ({ heading, projects }: ProjectGalleryProps) => {
                   </div>
                   <div className="p-5">
                     <h3 className="text-xl font-bold text-slate-50">{project.title}</h3>
-                    <p className="mt-2 text-sm text-slate-400">{project.sector} · {project.location}</p>
+                    <div className="mt-2 flex items-center gap-2">
+                      <SectorBadge sector={resolveSectorKey(project.sector)} label={project.sector} />
+                      <p className="text-sm text-slate-400">{project.location}</p>
+                    </div>
                   </div>
                   <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <p className="text-sm text-slate-200">{project.summary}</p>
@@ -108,7 +112,10 @@ const ProjectGallery = ({ heading, projects }: ProjectGalleryProps) => {
             <div className="mb-5 flex items-start justify-between gap-4">
               <div>
                 <h3 className="text-2xl font-bold text-slate-50">{activeProject.title}</h3>
-                <p className="mt-1 text-sm text-slate-400">{activeProject.sector} · {activeProject.location}</p>
+                <div className="mt-1 flex items-center gap-2">
+                  <SectorBadge sector={resolveSectorKey(activeProject.sector)} label={activeProject.sector} />
+                  <p className="text-sm text-slate-400">{activeProject.location}</p>
+                </div>
               </div>
               <button
                 type="button"

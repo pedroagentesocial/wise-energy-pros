@@ -1,17 +1,29 @@
 import { useEffect, useState } from 'react';
+import SectorBadge from './SectorBadge';
 
 type ServiceItem = {
   title: string;
   description: string;
   icon: 'installation' | 'maintenance' | 'panel' | 'renovation' | 'ev';
+  sectors: Array<'residential' | 'commercial' | 'industrial'>;
 };
 
 type ServicesGridProps = {
   heading: string;
+  intro?: string;
+  sectorLabels: {
+    residential: string;
+    commercial: string;
+    industrial: string;
+  };
+  labels: {
+    cardTag: string;
+    applicableSectors: string;
+  };
   items: ServiceItem[];
 };
 
-const iconClasses = 'h-6 w-6 text-cyan-400';
+const iconClasses = 'h-6 w-6 text-cyan-300 transition-colors duration-300';
 
 const ServiceIcon = ({ icon }: { icon: ServiceItem['icon'] }) => {
   if (icon === 'installation') {
@@ -53,7 +65,9 @@ const ServiceIcon = ({ icon }: { icon: ServiceItem['icon'] }) => {
   );
 };
 
-const ServicesGrid = ({ heading, items }: ServicesGridProps) => {
+const allSectors: Array<'residential' | 'commercial' | 'industrial'> = ['residential', 'commercial', 'industrial'];
+
+const ServicesGrid = ({ heading, intro, sectorLabels, labels, items }: ServicesGridProps) => {
   const [visible, setVisible] = useState<boolean[]>(() => items.map(() => false));
 
   useEffect(() => {
@@ -87,27 +101,44 @@ const ServicesGrid = ({ heading, items }: ServicesGridProps) => {
   }, [items.length]);
 
   return (
-    <section className="bg-slate-950 py-20">
+    <section className="bg-slate-950 py-16 md:py-20">
       <div className="container mx-auto px-6">
-        <h2 className="mb-12 text-center text-4xl font-bold text-slate-50">{heading}</h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <h2 className="text-center text-3xl font-bold text-slate-50 md:text-4xl">{heading}</h2>
+        {intro && <p className="mx-auto mt-4 max-w-3xl text-center text-slate-400 md:text-lg">{intro}</p>}
+        <div className={intro ? 'mt-10' : 'mt-12'}>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
             <article
               key={item.title}
               data-service-card
               data-index={index}
-              className={`group rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-cyan-400/70 hover:shadow-[0_0_28px_rgba(34,211,238,0.18)] ${
+              className={`group flex h-full flex-col rounded-2xl border border-slate-800/90 bg-slate-900/45 p-5 backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1 hover:border-cyan-400/70 hover:shadow-[0_16px_32px_rgba(8,47,73,0.28)] md:p-6 ${
                 visible[index] ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
               }`}
               style={{ transitionDelay: `${index * 90}ms` }}
             >
-              <div className="mb-4 inline-flex rounded-xl border border-slate-800 bg-slate-950/80 p-3 transition-colors duration-300 group-hover:border-cyan-400/70">
-                <ServiceIcon icon={item.icon} />
+              <div className="mb-4 flex items-start justify-between gap-3">
+                <div className="inline-flex rounded-xl border border-slate-800 bg-slate-950/80 p-3 transition-all duration-300 group-hover:border-cyan-400/70 group-hover:bg-slate-900">
+                  <ServiceIcon icon={item.icon} />
+                </div>
+                <span className="rounded-full border border-slate-700 bg-slate-950/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400">{labels.cardTag}</span>
               </div>
-              <h3 className="text-xl font-bold text-slate-50">{item.title}</h3>
-              <p className="mt-3 text-slate-400">{item.description}</p>
+              <h3 className="text-lg font-bold leading-snug text-slate-50 md:text-xl">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-400 md:text-base">{item.description}</p>
+              <div className="mt-5 border-t border-slate-800/80 pt-4">
+                <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">{labels.applicableSectors}</p>
+                <div className="flex flex-wrap gap-2">
+                {allSectors.map((sector) => {
+                  const active = item.sectors.includes(sector);
+                  return (
+                    <SectorBadge key={`${item.title}-${sector}`} sector={sector} label={sectorLabels[sector]} muted={!active} />
+                  );
+                })}
+                </div>
+              </div>
             </article>
           ))}
+        </div>
         </div>
       </div>
     </section>

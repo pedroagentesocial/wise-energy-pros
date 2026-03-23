@@ -7,6 +7,7 @@ import type { LeadFormStrings, LeadFormSubmitHandler } from '../forms/types';
 type ValidatedLeadFormProps = {
   strings: LeadFormStrings;
   submitLabel: string;
+  showProjectType?: boolean;
   showService?: boolean;
   showMessage?: boolean;
   compact?: boolean;
@@ -18,6 +19,7 @@ type ValidatedLeadFormProps = {
 const ValidatedLeadForm = ({
   strings,
   submitLabel,
+  showProjectType = true,
   showService = true,
   showMessage = true,
   compact = false,
@@ -42,6 +44,7 @@ const ValidatedLeadForm = ({
     submitError,
   } = useLeadFormValidation({
     strings,
+    showProjectType,
     showService,
     showMessage,
     submitHandler,
@@ -116,20 +119,73 @@ const ValidatedLeadForm = ({
           />
         </div>
 
+        {showProjectType && (
+          <div className={compact ? '' : 'sm:col-span-2'}>
+            <div className="space-y-1.5">
+              <label className="sr-only" htmlFor={`${formId}-project-type`}>
+                {strings.fields.projectType}
+              </label>
+              <select
+                id={`${formId}-project-type`}
+                value={values.projectType}
+                onBlur={() => setFieldTouched('projectType')}
+                onChange={(event) => setFieldValue('projectType', event.target.value)}
+                className={`w-full rounded-xl border bg-slate-950/90 px-4 text-sm text-slate-50 transition-all duration-300 focus:outline-none focus:ring-2 ${
+                  showError('projectType')
+                    ? 'border-red-400/70 bg-red-500/5 focus:border-red-400/80 focus:ring-red-400/35'
+                    : 'border-slate-800 focus:border-cyan-400/70 focus:ring-cyan-400/30'
+                } ${submitting ? 'cursor-not-allowed opacity-70' : 'hover:border-slate-700'} ${compact ? 'py-2.5' : 'py-3'}`}
+                disabled={submitting}
+                aria-invalid={Boolean(showError('projectType') && errors.projectType)}
+                required
+              >
+                <option value="" disabled>
+                  {strings.fields.projectType}
+                </option>
+                <option value="residential">{strings.projectTypeOptions.residential}</option>
+                <option value="commercial">{strings.projectTypeOptions.commercial}</option>
+                <option value="industrial">{strings.projectTypeOptions.industrial}</option>
+              </select>
+              {showError('projectType') && errors.projectType && (
+                <p className="text-xs font-medium text-red-300 animate-in fade-in duration-200">{errors.projectType}</p>
+              )}
+            </div>
+          </div>
+        )}
+
         {showService && (
           <div className={compact ? '' : 'sm:col-span-2'}>
-            <FormField
-              id={`${formId}-service`}
-              label={strings.fields.service}
-              value={values.service}
-              onBlur={() => setFieldTouched('service')}
-              onChange={(value) => setFieldValue('service', value)}
-              placeholder={strings.fields.service}
-              error={showError('service') ? errors.service : undefined}
-              autoComplete="organization-title"
-              disabled={submitting}
-              required
-            />
+            <div className="space-y-1.5">
+              <label className="sr-only" htmlFor={`${formId}-service`}>
+                {strings.fields.service}
+              </label>
+              <select
+                id={`${formId}-service`}
+                value={values.service}
+                onBlur={() => setFieldTouched('service')}
+                onChange={(event) => setFieldValue('service', event.target.value)}
+                className={`w-full rounded-xl border bg-slate-950/90 px-4 text-sm text-slate-50 transition-all duration-300 focus:outline-none focus:ring-2 ${
+                  showError('service')
+                    ? 'border-red-400/70 bg-red-500/5 focus:border-red-400/80 focus:ring-red-400/35'
+                    : 'border-slate-800 focus:border-cyan-400/70 focus:ring-cyan-400/30'
+                } ${submitting ? 'cursor-not-allowed opacity-70' : 'hover:border-slate-700'} ${compact ? 'py-2.5' : 'py-3'}`}
+                disabled={submitting}
+                aria-invalid={Boolean(showError('service') && errors.service)}
+                required
+              >
+                <option value="" disabled>
+                  {strings.fields.service}
+                </option>
+                <option value="installation">{strings.serviceOptions.installation}</option>
+                <option value="maintenance">{strings.serviceOptions.maintenance}</option>
+                <option value="panelUpgrades">{strings.serviceOptions.panelUpgrades}</option>
+                <option value="renovation">{strings.serviceOptions.renovation}</option>
+                <option value="evCharger">{strings.serviceOptions.evCharger}</option>
+              </select>
+              {showError('service') && errors.service && (
+                <p className="text-xs font-medium text-red-300 animate-in fade-in duration-200">{errors.service}</p>
+              )}
+            </div>
           </div>
         )}
 

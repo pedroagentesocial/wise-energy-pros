@@ -1,5 +1,9 @@
 ---
-import { getDictionary, isLocale, locales } from '../../i18n';
+import ServiceSectorExplainer from '../../components/ServiceSectorExplainer';
+import ServicesGrid from '../../components/ServicesGrid';
+import SectorBadge from '../../components/SectorBadge';
+import ValidatedLeadForm from '../../components/ValidatedLeadForm';
+import { getDictionary, isLocale, locales, localizedPath } from '../../i18n';
 import Layout from '../../layouts/Layout.astro';
 
 export const getStaticPaths = () => {
@@ -13,30 +17,181 @@ if (!isLocale(lang)) {
 	throw new Error('Unsupported locale');
 }
 const t = getDictionary(lang);
+const serviceItems = t.home.servicesSection.items.map((item) => ({
+	...item,
+	icon: item.icon as 'installation' | 'maintenance' | 'panel' | 'renovation' | 'ev',
+	sectors: item.sectors as Array<'residential' | 'commercial' | 'industrial'>,
+}));
+const sectorExplainerItems = t.services.sectorExplainer.items.map((item) => ({
+	...item,
+	icon: item.icon as 'residential' | 'commercial' | 'industrial',
+}));
+const detailedItems = t.services.details.items.map((item, index) => ({
+	...item,
+	id: `service-${index + 1}`,
+	sectors: item.sectors as Array<'residential' | 'commercial' | 'industrial'>,
+}));
+const contactUrl = localizedPath(lang, '/contact');
+const privacyUrl = localizedPath(lang, '/privacy-policy');
+const termsUrl = localizedPath(lang, '/terms-and-conditions');
 ---
 
 <Layout title={t.meta.services.title} description={t.meta.services.description} lang={lang}>
-	<section class="bg-slate-950 py-20">
+	<section class="relative bg-slate-950 py-16 md:py-20">
+		<div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-cyan-500/5 to-transparent"></div>
 		<div class="container mx-auto px-6 opacity-0 translate-y-4" data-reveal data-stagger-parent>
-			<h1 class="text-4xl font-extrabold text-slate-50 md:text-5xl">{t.services.heading}</h1>
-			<p class="mt-4 max-w-3xl text-slate-400">{t.services.intro}</p>
-			<div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-				<article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/60" data-stagger-item>
-					<h2 class="text-2xl font-bold text-slate-50">{t.services.cards.panel.title}</h2>
-					<p class="mt-3 text-slate-400">{t.services.cards.panel.description}</p>
-				</article>
-				<article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/60" data-stagger-item>
-					<h2 class="text-2xl font-bold text-slate-50">{t.services.cards.nec.title}</h2>
-					<p class="mt-3 text-slate-400">{t.services.cards.nec.description}</p>
-				</article>
-				<article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/60" data-stagger-item>
-					<h2 class="text-2xl font-bold text-slate-50">{t.services.cards.maintenance.title}</h2>
-					<p class="mt-3 text-slate-400">{t.services.cards.maintenance.description}</p>
-				</article>
-				<article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/60" data-stagger-item>
-					<h2 class="text-2xl font-bold text-slate-50">{t.services.cards.integration.title}</h2>
-					<p class="mt-3 text-slate-400">{t.services.cards.integration.description}</p>
-				</article>
+			<div class="relative overflow-hidden rounded-3xl border border-slate-800/90 p-8 shadow-[0_24px_55px_rgba(2,6,23,0.45)] md:p-12">
+				<div class="absolute inset-0">
+					<img src="https://images.unsplash.com/photo-1581092160607-ee22731d8bd2?auto=format&fit=crop&w=1800&q=80" alt="" class="h-full w-full object-cover" />
+					<div class="absolute inset-0 bg-slate-950/80"></div>
+					<div class="absolute -left-16 -top-16 h-48 w-48 rounded-full bg-cyan-400/15 blur-3xl animate-pulse"></div>
+					<div class="absolute -bottom-20 right-0 h-56 w-56 rounded-full bg-blue-500/15 blur-3xl animate-pulse"></div>
+				</div>
+				<div class="relative">
+					<p class="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300">{t.services.heroEyebrow}</p>
+					<h1 class="text-4xl font-extrabold text-slate-50 md:text-5xl">{t.services.heroTitle}</h1>
+					<p class="mt-4 max-w-3xl text-slate-200 leading-relaxed">{t.services.heroSubtitle}</p>
+					<div class="mt-5 flex flex-wrap gap-2">
+						{t.services.highlights.map((item) => (
+							<span class="rounded-full border border-slate-700 bg-slate-950/75 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-slate-300">{item}</span>
+						))}
+					</div>
+					<div class="mt-7">
+					<a href={contactUrl} class="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-bold text-slate-50 shadow-[0_0_22px_rgba(37,99,235,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-[0_0_28px_rgba(34,211,238,0.35)]">
+						{t.services.heroCta}
+					</a>
+					</div>
+				</div>
+			</div>
+			<div class="mt-6 rounded-2xl border border-slate-800/90 bg-slate-900/45 p-4 shadow-[0_12px_28px_rgba(2,6,23,0.32)]">
+				<p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">{t.services.ui.quickNavigation}</p>
+				<div class="mt-3 flex flex-wrap gap-2">
+					{detailedItems.map((item) => (
+						<a href={`#${item.id}`} class="rounded-full border border-slate-700 bg-slate-950/70 px-3 py-1 text-xs font-semibold text-slate-300 transition-all duration-300 hover:border-cyan-400/65 hover:text-cyan-300">{item.title}</a>
+					))}
+					<a href="#service-sectors" class="rounded-full border border-slate-700 bg-slate-950/70 px-3 py-1 text-xs font-semibold text-slate-300 transition-all duration-300 hover:border-cyan-400/65 hover:text-cyan-300">{t.services.sectorExplainer.heading}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-t border-slate-800/80 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900/35 py-16 md:py-20">
+		<ServicesGrid
+		client:load
+		heading={t.home.servicesSection.heading}
+		intro={t.home.servicesSection.intro}
+		sectorLabels={t.home.servicesSection.sectorLabels}
+		labels={t.home.servicesSection.labels}
+		items={serviceItems}
+	/>
+	</section>
+
+	<section class="border-t border-slate-800/80 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900/30 py-16 md:py-20">
+		<div class="container mx-auto px-6 opacity-0 translate-y-4" data-reveal data-stagger-parent>
+			<p class="text-center text-xs font-semibold uppercase tracking-[0.16em] text-cyan-300">{t.services.ui.serviceBreakdown}</p>
+			<h2 class="text-center text-3xl font-bold text-slate-50 md:text-4xl">{t.services.details.heading}</h2>
+			<p class="mx-auto mt-4 max-w-3xl text-center text-slate-400 leading-relaxed">{t.services.details.intro}</p>
+			<div class="mt-10 space-y-8">
+				{detailedItems.map((item, index) => (
+					<article id={item.id} class="group rounded-2xl border border-slate-800 bg-slate-900/50 p-5 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-cyan-400/60 hover:shadow-[0_16px_34px_rgba(8,47,73,0.26)] md:p-6" data-stagger-item>
+						<div class={`grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-center ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1' : ''}`}>
+							<div class="overflow-hidden rounded-xl border border-slate-800">
+								<img src={item.image} alt={item.imageAlt} class="h-64 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] md:h-72" loading="lazy" />
+							</div>
+							<div>
+								<h3 class="text-2xl font-bold text-slate-50">{item.title}</h3>
+								<p class="mt-3 max-w-xl text-slate-400 leading-relaxed">{item.description}</p>
+								<p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">{t.services.ui.included}</p>
+								<ul class="mt-4 space-y-2">
+									{item.points.map((point) => (
+										<li class="flex items-start gap-2 text-sm text-slate-300">
+											<span class="mt-[5px] h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+											<span>{point}</span>
+										</li>
+									))}
+								</ul>
+								<p class="mt-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">{t.services.ui.applicableSectors}</p>
+								<div class="mt-5 flex flex-wrap gap-2">
+									{item.sectors.map((sector) => (
+										<SectorBadge sector={sector} label={t.home.servicesSection.sectorLabels[sector]} />
+									))}
+								</div>
+								<div class="mt-6">
+									<a href={contactUrl} class="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-bold text-slate-50 shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-[0_0_26px_rgba(34,211,238,0.32)]">
+										{item.cta}
+									</a>
+								</div>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section id="service-sectors" class="border-t border-slate-800/80 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900/35 py-16 md:py-20">
+		<ServiceSectorExplainer
+			client:load
+			heading={t.services.sectorExplainer.heading}
+			intro={t.services.sectorExplainer.intro}
+			items={sectorExplainerItems}
+		/>
+	</section>
+
+	<section id="services-contact-form" class="border-t border-slate-800/80 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900/35 py-16 md:py-20">
+		<div class="container mx-auto px-6 opacity-0 translate-y-4" data-reveal data-stagger-parent>
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="text-3xl font-bold text-slate-50 md:text-4xl">{t.home.contactSection.heading}</h2>
+				<p class="mt-4 text-slate-400">{t.home.contactSection.intro}</p>
+				<ul class="mt-5 grid grid-cols-1 gap-2 text-left sm:grid-cols-3">
+					{t.services.contactForm.highlights.map((item) => (
+						<li class="rounded-xl border border-slate-800 bg-slate-900/40 px-3 py-2 text-xs text-slate-300">
+							<span class="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-cyan-400"></span>{item}
+						</li>
+					))}
+				</ul>
+			</div>
+			<div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-5">
+				<div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-4 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50 lg:col-span-3" data-stagger-item>
+					<h3 class="mb-4 text-xl font-bold text-slate-50">{t.home.contactSection.mapTitle}</h3>
+					<div class="overflow-hidden rounded-xl border border-slate-800">
+						<iframe
+							title={t.home.contactSection.mapTitle}
+							src="https://www.google.com/maps?q=United+States&output=embed"
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							class="h-72 w-full md:h-[30rem]"
+						></iframe>
+					</div>
+				</div>
+				<div class="space-y-6 lg:col-span-2">
+					<div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50" data-stagger-item>
+						<ValidatedLeadForm
+							client:load
+							strings={t.forms}
+							submitLabel={t.home.contactSection.form.submit}
+							showProjectType={true}
+							showService={true}
+							showMessage={true}
+							privacyHref={privacyUrl}
+							termsHref={termsUrl}
+						/>
+					</div>
+					<div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50" data-stagger-item>
+						<h3 class="text-lg font-bold text-slate-50">{t.services.contactForm.socialHeading}</h3>
+						<div class="mt-4 flex items-center gap-3">
+							<a href="https://facebook.com" target="_blank" rel="noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400" aria-label={t.footer.social.facebook}>
+								<svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v5h3v-5h2.2l.8-3H13V9c0-.55.45-1 1-1Z"/></svg>
+							</a>
+							<a href="https://instagram.com" target="_blank" rel="noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400" aria-label={t.footer.social.instagram}>
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.6" r="1"/></svg>
+							</a>
+							<a href="https://linkedin.com" target="_blank" rel="noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400" aria-label={t.footer.social.linkedin}>
+								<svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M6.5 8.5A1.5 1.5 0 1 0 6.5 5.5a1.5 1.5 0 0 0 0 3ZM5 10h3v9H5zm5 0h2.8v1.3h.04c.39-.74 1.35-1.52 2.78-1.52 2.97 0 3.52 1.95 3.52 4.48V19h-3v-3.98c0-.95-.02-2.18-1.33-2.18-1.33 0-1.54 1.04-1.54 2.11V19h-3z"/></svg>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

@@ -9,29 +9,30 @@
     "services": "Servicios",
     "about": "Nosotros",
     "projects": "Proyectos",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "audience": "Residencial • Comercial • Industrial"
   },
   "meta": {
     "home": {
       "title": "Wise Energy Pros | Inicio",
-      "description": "Modernización eléctrica premium para hogares e instalaciones en Estados Unidos."
+      "description": "Modernización eléctrica premium para propiedades residenciales, comerciales e industriales en Estados Unidos."
     },
     "services": {
       "title": "Wise Energy Pros | Servicios",
-      "description": "Conoce servicios eléctricos enfocados en NEC para modernización, mantenimiento y cumplimiento en EE. UU."
+      "description": "Conoce servicios eléctricos enfocados en NEC para proyectos residenciales, comerciales e industriales en EE. UU."
     },
     "about": {
       "title": "Wise Energy Pros | Nosotros",
-      "description": "Descubre cómo Wise Energy Pros entrega resultados eléctricos de alto estándar en Estados Unidos."
+      "description": "Descubre cómo Wise Energy Pros entrega resultados eléctricos residenciales, comerciales e industriales de alto estándar en Estados Unidos."
     },
     "contact": {
       "title": "Wise Energy Pros | Contacto",
-      "description": "Contáctanos para modernización eléctrica, inspecciones y mantenimiento."
+      "description": "Contáctanos para modernización, inspecciones y mantenimiento residencial, comercial e industrial."
     }
   },
   "home": {
     "heroTitle": "Soluciones Eléctricas Inteligentes para la Vida Moderna",
-    "heroDescription": "Modernización eléctrica preparada para el futuro, mantenimiento de alto rendimiento y ejecución alineada al NEC para propiedades residenciales y comerciales en Estados Unidos.",
+    "heroDescription": "Modernización eléctrica preparada para el futuro, mantenimiento de alto rendimiento y ejecución alineada al NEC para propiedades residenciales, comerciales e industriales en Estados Unidos.",
     "heroPrimaryCta": "Solicitar Cotización",
     "heroSecondaryCta": "Contáctanos",
     "heroSlider": {
@@ -42,26 +43,26 @@
       "slides": [
         {
           "title": "Soluciones Eléctricas Inteligentes",
-          "subtitle": "Servicios residenciales y comerciales.",
+          "subtitle": "Residencial • Comercial • Industrial",
           "cta": "Obtén Cotización Gratis",
           "href": "/contact",
-          "video": "https://cdn.coverr.co/videos/coverr-electrical-panel-maintenance-1579/1080p.mp4",
+          "video": "/videos/hero1.mp4",
           "poster": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=80"
         },
         {
           "title": "Actualiza tu Sistema Eléctrico",
-          "subtitle": "Instalaciones seguras, modernas y eficientes.",
+          "subtitle": "Actualizaciones para sistemas residenciales, comerciales e industriales.",
           "cta": "Ver Servicios",
           "href": "/services",
-          "video": "https://cdn.coverr.co/videos/coverr-engineer-checking-cables-5175/1080p.mp4",
+          "video": "/videos/hero2.mp4",
           "poster": "https://images.unsplash.com/photo-1581092160607-ee22731d8bd2?auto=format&fit=crop&w=1600&q=80"
         },
         {
           "title": "Expertos Eléctricos de Confianza",
-          "subtitle": "Mantenimiento y reparaciones confiables.",
+          "subtitle": "Mantenimiento y reparaciones para espacios residenciales, comerciales e industriales.",
           "cta": "Contáctanos",
           "href": "/contact",
-          "video": "https://cdn.coverr.co/videos/coverr-electrician-at-work-1578/1080p.mp4",
+          "video": "/videos/hero3.mp4",
           "poster": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1600&q=80"
         }
       ]
@@ -69,31 +70,67 @@
     "servicesTitle": "Servicios Eléctricos Principales",
     "servicesSection": {
       "heading": "Nuestros Servicios",
+      "intro": "Soluciones eléctricas integrales adaptadas para entornos residenciales, comerciales e industriales.",
+      "sectorLabels": {
+        "residential": "Residencial",
+        "commercial": "Comercial",
+        "industrial": "Industrial"
+      },
+      "labels": {
+        "cardTag": "Servicio",
+        "applicableSectors": "Sectores Aplicables"
+      },
       "items": [
         {
           "title": "Instalación Eléctrica",
           "description": "Instalaciones con cumplimiento de código diseñadas para eficiencia y crecimiento de carga futuro.",
-          "icon": "installation"
+          "icon": "installation",
+          "sectors": ["residential", "commercial", "industrial"]
         },
         {
           "title": "Mantenimiento",
           "description": "Mantenimiento preventivo y correctivo para mantener tu infraestructura eléctrica confiable.",
-          "icon": "maintenance"
+          "icon": "maintenance",
+          "sectors": ["residential", "commercial", "industrial"]
         },
         {
           "title": "Actualización de Paneles",
           "description": "Actualizaciones de paneles de alta capacidad para demanda moderna y preparación para vehículos eléctricos.",
-          "icon": "panel"
+          "icon": "panel",
+          "sectors": ["residential", "commercial", "industrial"]
         },
         {
           "title": "Renovación de Sistemas Antiguos",
           "description": "Modernización estratégica de cableado y paneles legados bajo estándares NEC vigentes.",
-          "icon": "renovation"
+          "icon": "renovation",
+          "sectors": ["residential", "commercial"]
         },
         {
           "title": "Instalación de Cargadores EV",
           "description": "Implementación de cargadores EV con dimensionamiento correcto de circuito y rendimiento duradero.",
-          "icon": "ev"
+          "icon": "ev",
+          "sectors": ["residential", "commercial", "industrial"]
+        }
+      ]
+    },
+    "sectorsSection": {
+      "heading": "Atendemos Clientes Residenciales, Comerciales e Industriales",
+      "intro": "Modelos de ejecución eléctrica especializados según seguridad, escala y continuidad operativa de cada sector.",
+      "items": [
+        {
+          "title": "Residencial",
+          "description": "Actualizaciones, reparaciones y modernización de paneles con cumplimiento de código para hogares y propiedades multifamiliares.",
+          "icon": "residential"
+        },
+        {
+          "title": "Comercial",
+          "description": "Ejecución eléctrica confiable para oficinas, retail e instalaciones con mínima interrupción operativa.",
+          "icon": "commercial"
+        },
+        {
+          "title": "Industrial",
+          "description": "Sistemas de alta capacidad, mantenimiento preventivo y soporte de cumplimiento para operaciones exigentes.",
+          "icon": "industrial"
         }
       ]
     },
@@ -111,7 +148,7 @@
         },
         {
           "title": "Licenciados y Asegurados",
-          "description": "Profesionales certificados con cobertura completa para proyectos residenciales y comerciales."
+          "description": "Profesionales certificados con cobertura completa para proyectos residenciales, comerciales e industriales."
         }
       ]
     },
@@ -130,40 +167,40 @@
         {
           "title": "Renovación de Panel en Residencia Premium",
           "sector": "Residencial",
-          "location": "Austin, TX",
+          "location": "Salt Lake City, UT",
           "summary": "Sustitución de panel obsoleto por servicio moderno de 200A para mayor confiabilidad y capacidad de expansión.",
-          "beforeImage": "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1200&q=80",
-          "afterImage": "https://images.unsplash.com/photo-1621905252472-943afaa20e5f?auto=format&fit=crop&w=1200&q=80"
+          "beforeImage": "https://placehold.co/1200x800/0f172a/94a3b8?text=Panel+Residencial+Antes",
+          "afterImage": "https://placehold.co/1200x800/164e63/cffafe?text=Panel+Residencial+Despues"
         },
         {
           "title": "Actualización de Iluminación y Circuitos en Comercio",
           "sector": "Comercial",
-          "location": "Phoenix, AZ",
+          "location": "Provo, UT",
           "summary": "Renovación de circuitos derivados y migración de luminarias heredadas a LED inteligente de alto rendimiento.",
           "beforeImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-          "afterImage": "https://images.unsplash.com/photo-1581092921461-eab10380d3d0?auto=format&fit=crop&w=1200&q=80"
+          "afterImage": "https://placehold.co/1200x800/164e63/cffafe?text=Iluminacion+Comercial+Despues"
         },
         {
           "title": "Retrofit Multiunidad Preparado para EV",
           "sector": "Residencial",
-          "location": "San Diego, CA",
+          "location": "Ogden, UT",
           "summary": "Optimización de distribución de carga e instalación de circuitos dedicados para carga de vehículos eléctricos.",
           "beforeImage": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=80",
           "afterImage": "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80"
         },
         {
-          "title": "Modernización de Seguridad en Oficinas",
-          "sector": "Comercial",
-          "location": "Denver, CO",
+          "title": "Modernización de Seguridad en Planta Industrial",
+          "sector": "Industrial",
+          "location": "West Jordan, UT",
           "summary": "Corrección de puesta a tierra, reorganización de tableros y entrega de cuarto eléctrico listo para inspección.",
-          "beforeImage": "https://images.unsplash.com/photo-1581092160607-ee22731d8bd2?auto=format&fit=crop&w=1200&q=80",
+          "beforeImage": "https://placehold.co/1200x800/0f172a/94a3b8?text=Seguridad+Industrial+Antes",
           "afterImage": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1200&q=80"
         }
       ]
     },
     "whyChoose": {
-      "heading": "Por Qué Nos Eligen Hogares y Empresas",
-      "intro": "Profesionales eléctricos confiables enfocados en seguridad, rapidez y rendimiento a largo plazo en cada proyecto.",
+      "heading": "Por Qué Nos Eligen Clientes Residenciales, Comerciales e Industriales",
+      "intro": "Profesionales eléctricos confiables enfocados en seguridad, rapidez y rendimiento a largo plazo en todos los sectores.",
       "items": [
         {
           "title": "Licenciados y Asegurados",
@@ -179,6 +216,11 @@
           "title": "Técnicos con Experiencia",
           "description": "Equipos con amplia experiencia en diagnósticos, modernizaciones e instalaciones normativas.",
           "icon": "technicians"
+        },
+        {
+          "title": "Experiencia Multisector",
+          "description": "Ejecución comprobada en proyectos eléctricos residenciales, comerciales e industriales.",
+          "icon": "multiSector"
         },
         {
           "title": "Precios Transparentes",
@@ -205,43 +247,43 @@
         {
           "name": "Sofía Martínez",
           "location": "Salt Lake City, UT",
-          "quote": "Servicio rápido, limpio y muy profesional. Nuestro panel quedó perfecto.",
+          "quote": "Como propietarios de vivienda, necesitábamos modernizar el panel y circuitos de cocina. Terminaron en un día y dejaron todo impecable.",
           "avatar": "https://i.pravatar.cc/120?img=21"
         },
         {
           "name": "David Reynolds",
           "location": "Provo, UT",
-          "quote": "Excelente comunicación y ejecución de alto nivel desde el inicio hasta la inspección.",
+          "quote": "Tenemos un local comercial y sufríamos disparos de breakers en horas pico. Diagnosticaron rápido y el negocio quedó operando con estabilidad.",
           "avatar": "https://i.pravatar.cc/120?img=12"
         },
         {
           "name": "Ashley Coleman",
           "location": "Ogden, UT",
-          "quote": "Equipo confiable. Resolvieron fallas recurrentes de interruptores con seguridad.",
+          "quote": "En mantenimiento preventivo para nuestro complejo residencial detectaron una conexión desgastada antes de una falla mayor. Muy profesionales.",
           "avatar": "https://i.pravatar.cc/120?img=45"
         },
         {
           "name": "Michael Turner",
           "location": "St. George, UT",
-          "quote": "Buen precio, llegada puntual y diagnóstico eléctrico muy detallado.",
+          "quote": "Los contratamos para modernizar iluminación en una nave industrial. Cumplieron tiempos, mejoraron visibilidad y respetaron el presupuesto.",
           "avatar": "https://i.pravatar.cc/120?img=33"
         },
         {
           "name": "Olivia Bennett",
           "location": "West Jordan, UT",
-          "quote": "La instalación de nuestro cargador EV fue fluida y muy bien integrada.",
+          "quote": "La instalación de nuestro cargador EV residencial fue fluida desde permisos hasta pruebas finales. Excelente integración con el panel.",
           "avatar": "https://i.pravatar.cc/120?img=47"
         },
         {
           "name": "Ethan Brooks",
           "location": "Lehi, UT",
-          "quote": "Equipo profesional con gran enfoque en seguridad y cumplimiento de código.",
+          "quote": "Tras una tormenta en nuestra planta ligera, llegaron rápido y resolvieron la emergencia con seguridad y comunicación clara.",
           "avatar": "https://i.pravatar.cc/120?img=14"
         },
         {
           "name": "Grace Foster",
           "location": "Park City, UT",
-          "quote": "Atención rápida y calidad premium en la ejecución. Totalmente recomendado.",
+          "quote": "Administramos propiedades comerciales mixtas y su equipo lleva nuestro mantenimiento programado. Son confiables y documentan cada servicio.",
           "avatar": "https://i.pravatar.cc/120?img=32"
         }
       ]
@@ -279,8 +321,21 @@
       "name": "Nombre Completo",
       "email": "Correo Electrónico",
       "phone": "Número de Teléfono",
+      "projectType": "Tipo de Proyecto",
       "service": "Servicio Requerido",
       "message": "Mensaje del Proyecto"
+    },
+    "projectTypeOptions": {
+      "residential": "Residencial",
+      "commercial": "Comercial",
+      "industrial": "Industrial"
+    },
+    "serviceOptions": {
+      "installation": "Instalación Eléctrica",
+      "maintenance": "Mantenimiento",
+      "panelUpgrades": "Actualización de Paneles",
+      "renovation": "Renovación de Sistemas",
+      "evCharger": "Instalación de Cargadores EV"
     },
     "phoneHelper": "Usa un número válido de EE. UU.: (555) 123-4567",
     "requiredConsentPrefix": "Acepto la",
@@ -300,7 +355,24 @@
   },
   "services": {
     "heading": "Servicios Eléctricos Diseñados para Confiabilidad",
-    "intro": "Ofrecemos programas premium de modernización eléctrica para activos residenciales y comerciales, diseñados para seguridad, rendimiento y crecimiento a largo plazo.",
+    "intro": "Ofrecemos programas premium de modernización eléctrica para activos residenciales, comerciales e industriales, diseñados para seguridad, rendimiento y crecimiento a largo plazo.",
+    "heroTitle": "Nuestros Servicios Eléctricos",
+    "heroSubtitle": "Soluciones eléctricas residenciales, comerciales e industriales con ejecución profesional y cumplimiento de código.",
+    "heroCta": "Solicitar Cotización",
+    "heroEyebrow": "Programas Eléctricos con Cumplimiento de Código",
+    "heroPrimary": "Solicitar Cotización Gratis",
+    "heroSecondary": "Llamar al Equipo",
+    "highlights": [
+      "Residencial • Comercial • Industrial",
+      "Equipo Licenciado y Asegurado",
+      "Respuesta Rápida en Utah"
+    ],
+    "ui": {
+      "quickNavigation": "Navegación Rápida",
+      "serviceBreakdown": "Desglose de Servicios",
+      "included": "Incluye",
+      "applicableSectors": "Sectores Aplicables"
+    },
     "cards": {
       "panel": {
         "title": "Modernización de Paneles de Servicio",
@@ -318,15 +390,138 @@
         "title": "Integración de Sistemas Inteligentes",
         "description": "Actualizaciones estructuradas para control de iluminación, continuidad de respaldo y entornos modernos conectados."
       }
+    },
+    "details": {
+      "heading": "Servicios Detallados",
+      "intro": "Conoce qué incluye cada servicio principal y en qué sectores aplica.",
+      "items": [
+        {
+          "title": "Instalación Eléctrica",
+          "description": "Instalaciones con cumplimiento de código para arranque seguro y desempeño confiable a largo plazo.",
+          "image": "https://images.unsplash.com/photo-1581092160607-ee22731d8bd2?auto=format&fit=crop&w=1600&q=80",
+          "imageAlt": "Electricista instalando cableado y componentes eléctricos",
+          "sectors": ["residential", "commercial", "industrial"],
+          "cta": "Solicitar Cotización de Instalación",
+          "points": [
+            "Instalación de circuitos y dispositivos nuevos",
+            "Planificación de carga y distribución segura",
+            "Pruebas finales y entrega lista para inspección"
+          ]
+        },
+        {
+          "title": "Mantenimiento",
+          "description": "Mantenimiento preventivo y correctivo para reducir fallas y proteger continuidad operativa.",
+          "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+          "imageAlt": "Técnico realizando diagnóstico de mantenimiento eléctrico",
+          "sectors": ["residential", "commercial", "industrial"],
+          "cta": "Agendar Mantenimiento",
+          "points": [
+            "Revisión térmica y estado de conexiones",
+            "Verificación de breakers y paneles",
+            "Informe de servicio con prioridades claras"
+          ]
+        },
+        {
+          "title": "Actualización de Paneles",
+          "description": "Ampliaciones de capacidad para nueva demanda, seguridad y crecimiento futuro.",
+          "image": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=80",
+          "imageAlt": "Actualización de panel eléctrico moderno",
+          "sectors": ["residential", "commercial", "industrial"],
+          "cta": "Cotizar Actualización de Panel",
+          "points": [
+            "Reemplazo y reconfiguración del panel principal",
+            "Balance de carga y organización de circuitos",
+            "Mejoras en puesta a tierra y protección"
+          ]
+        },
+        {
+          "title": "Renovación de Sistemas",
+          "description": "Modernización de infraestructura eléctrica antigua con enfoque en seguridad y escalabilidad.",
+          "image": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1600&q=80",
+          "imageAlt": "Sala eléctrica renovada con sistemas organizados",
+          "sectors": ["residential", "commercial"],
+          "cta": "Planificar Renovación",
+          "points": [
+            "Renovación de cableado y paneles legados",
+            "Correcciones de seguridad y cumplimiento de código",
+            "Ejecución por fases con mínima interrupción"
+          ]
+        },
+        {
+          "title": "Instalación de Cargadores EV",
+          "description": "Implementación integral de carga EV con distribución segura y diseño escalable.",
+          "image": "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1600&q=80",
+          "imageAlt": "Instalación de cargador de vehículo eléctrico",
+          "sectors": ["residential", "commercial", "industrial"],
+          "cta": "Solicitar Cotización EV",
+          "points": [
+            "Selección de cargador y dimensionamiento de circuito",
+            "Instalación de línea dedicada y protección",
+            "Puesta en marcha y guía de uso"
+          ]
+        }
+      ]
+    },
+    "sectorExplainer": {
+      "heading": "Sectores de Servicio Explicados",
+      "intro": "Adaptamos estándares de ejecución, tiempos de atención y diseño eléctrico según cada entorno operativo.",
+      "items": [
+        {
+          "title": "Residencial",
+          "description": "Trabajo eléctrico seguro y eficiente para viviendas, condominios y propiedades multifamiliares.",
+          "icon": "residential",
+          "useCases": [
+            "Reemplazo de paneles y actualización de circuitos",
+            "Instalación de cargadores EV y balance de carga",
+            "Modernización de iluminación y seguridad"
+          ]
+        },
+        {
+          "title": "Comercial",
+          "description": "Ejecución confiable enfocada en continuidad operativa, cumplimiento y mínima interrupción.",
+          "icon": "commercial",
+          "useCases": [
+            "Actualización de iluminación y circuitos en oficinas o retail",
+            "Programas de mantenimiento para instalaciones activas",
+            "Preparación para inspecciones y correcciones de código"
+          ]
+        },
+        {
+          "title": "Industrial",
+          "description": "Soporte eléctrico de alta capacidad para operaciones exigentes e infraestructura crítica.",
+          "icon": "industrial",
+          "useCases": [
+            "Correcciones de seguridad industrial y puesta a tierra",
+            "Modernización de distribución de energía y paneles",
+            "Respuesta a emergencias y refuerzo de confiabilidad"
+          ]
+        }
+      ]
+    },
+    "cta": {
+      "heading": "¿Necesitas Servicios Eléctricos?",
+      "subheading": "Cuéntanos tu proyecto y recibe una respuesta rápida para trabajos residenciales, comerciales o industriales.",
+      "primary": "Obtener Cotización Gratis",
+      "secondary": "Contáctanos"
+    },
+    "contactForm": {
+      "heading": "Inicia tu Solicitud de Servicio",
+      "intro": "Comparte los detalles del proyecto y nuestro equipo te enviará un plan de seguimiento el mismo día.",
+      "socialHeading": "Conecta en Redes Sociales",
+      "highlights": [
+        "Validación de nombre, correo y teléfono",
+        "Captura de tipo de servicio y tipo de proyecto",
+        "Consentimiento obligatorio y envío seguro"
+      ]
     }
   },
   "about": {
     "heading": "Sobre Wise Energy Pros",
-    "intro": "Somos un equipo enfocado en Estados Unidos para modernización eléctrica, con ejecución precisa, estándares estrictos de seguridad y resultados premium."
+    "intro": "Somos un equipo enfocado en Estados Unidos para modernización eléctrica con ejecución precisa en proyectos residenciales, comerciales e industriales."
   },
   "contact": {
     "heading": "Contacta a Nuestro Equipo de Ingeniería",
-    "intro": "Compártenos tus objetivos y te responderemos rápido con una recomendación clara.",
+    "intro": "Compártenos tus objetivos residenciales, comerciales o industriales y te responderemos rápido con una recomendación clara.",
     "channelsTitle": "Canales de Contacto",
     "quickActionsTitle": "Atención Inmediata",
     "quickActionsSubtitle": "Elige la vía más rápida para hablar con nuestro equipo.",
@@ -344,7 +539,8 @@
     }
   },
   "footer": {
-    "description": "Wise Energy Pros ofrece servicios eléctricos modernos y con cumplimiento de código para propiedades residenciales y comerciales en Estados Unidos.",
+    "description": "Wise Energy Pros ofrece servicios eléctricos modernos y con cumplimiento de código para propiedades residenciales, comerciales e industriales en Estados Unidos.",
+    "servingStatement": "Atendemos Clientes Residenciales, Comerciales e Industriales",
     "trust": {
       "heading": "Estándares de Confianza",
       "badges": {
@@ -355,7 +551,7 @@
     },
     "lead": {
       "heading": "Solicita una Cotización Gratis",
-      "subheading": "Recibe respuesta el mismo día de nuestro equipo eléctrico certificado.",
+      "subheading": "Recibe respuesta el mismo día de nuestro equipo certificado para proyectos residenciales, comerciales e industriales.",
       "call": "Llamar Ahora",
       "whatsapp": "WhatsApp",
       "quote": "Solicitar Cotización Gratis",

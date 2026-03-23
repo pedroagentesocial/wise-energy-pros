@@ -2,6 +2,7 @@
 import HeroVideoSlider from '../../components/HeroVideoSlider';
 import ProjectGallery from '../../components/ProjectGallery';
 import ServicesGrid from '../../components/ServicesGrid';
+import ServiceSectorsGrid from '../../components/ServiceSectorsGrid';
 import TestimonialsMarquee from '../../components/TestimonialsMarquee';
 import ValidatedLeadForm from '../../components/ValidatedLeadForm';
 import WhyChooseGrid from '../../components/WhyChooseGrid';
@@ -22,6 +23,11 @@ const t = getDictionary(lang);
 const serviceItems = t.home.servicesSection.items.map((item) => ({
 	...item,
 	icon: item.icon as 'installation' | 'maintenance' | 'panel' | 'renovation' | 'ev',
+	sectors: item.sectors as Array<'residential' | 'commercial' | 'industrial'>,
+}));
+const sectorItems = t.home.sectorsSection.items.map((item) => ({
+	...item,
+	icon: item.icon as 'residential' | 'commercial' | 'industrial',
 }));
 const galleryProjects = t.home.gallery.projects;
 const contactUrl = localizedPath(lang, '/contact');
@@ -29,7 +35,7 @@ const privacyUrl = localizedPath(lang, '/privacy-policy');
 const termsUrl = localizedPath(lang, '/terms-and-conditions');
 const whyChooseItems = t.home.whyChoose.items.map((item) => ({
 	...item,
-	icon: item.icon as 'licensed' | 'fast' | 'technicians' | 'pricing' | 'materials' | 'satisfaction',
+	icon: item.icon as 'licensed' | 'fast' | 'technicians' | 'multiSector' | 'pricing' | 'materials' | 'satisfaction',
 }));
 const contactPhoneDial = '+18005550145';
 ---
@@ -45,7 +51,20 @@ const contactPhoneDial = '+18005550145';
 		goToLabel={t.home.heroSlider.goTo}
 	/>
 
-	<ServicesGrid client:load heading={t.home.servicesSection.heading} items={serviceItems} />
+	<ServicesGrid
+		client:load
+		heading={t.home.servicesSection.heading}
+		intro={t.home.servicesSection.intro}
+		sectorLabels={t.home.servicesSection.sectorLabels}
+		labels={t.home.servicesSection.labels}
+		items={serviceItems}
+	/>
+	<ServiceSectorsGrid
+		client:load
+		heading={t.home.sectorsSection.heading}
+		intro={t.home.sectorsSection.intro}
+		items={sectorItems}
+	/>
 
 	<WhyChooseGrid client:load heading={t.home.whyChoose.heading} intro={t.home.whyChoose.intro} items={whyChooseItems} />
 

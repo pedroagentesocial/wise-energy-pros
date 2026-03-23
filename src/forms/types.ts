@@ -3,8 +3,21 @@ export type LeadFormStrings = {
     name: string;
     email: string;
     phone: string;
+    projectType: string;
     service: string;
     message: string;
+  };
+  projectTypeOptions: {
+    residential: string;
+    commercial: string;
+    industrial: string;
+  };
+  serviceOptions: {
+    installation: string;
+    maintenance: string;
+    panelUpgrades: string;
+    renovation: string;
+    evCharger: string;
   };
   phoneHelper: string;
   requiredConsentPrefix: string;
@@ -27,6 +40,7 @@ export type LeadFormValues = {
   name: string;
   email: string;
   phone: string;
+  projectType: string;
   service: string;
   message: string;
 };
