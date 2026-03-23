@@ -31,6 +31,17 @@ const VideoSlider = ({
 }: VideoSliderProps) => {
   const basePath = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
   const localizedHref = (href: string) => `${basePath}${lang}${href}`.replace(/([^:]\/)\/+/g, '$1');
+  const resolveAssetUrl = (url: string) => {
+    if (!url.startsWith('/')) {
+      return url;
+    }
+    return `${basePath}${url.replace(/^\//, '')}`.replace(/([^:]\/)\/+/g, '$1');
+  };
+  const preparedSlides = slides.map((slide) => ({
+    ...slide,
+    video: resolveAssetUrl(slide.video),
+    poster: resolveAssetUrl(slide.poster),
+  }));
   const [usePosterOnly, setUsePosterOnly] = useState(false);
   const [lowPerformanceMode, setLowPerformanceMode] = useState(false);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
@@ -105,7 +116,7 @@ const VideoSlider = ({
       tabIndex={0}
     >
       <div className="absolute inset-0">
-        {slides.map((slide, index) => (
+        {preparedSlides.map((slide, index) => (
           <div
             key={`${slide.title}-${index}`}
             className={`absolute inset-0 transition-opacity duration-700 ${index === activeIndex ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
@@ -155,7 +166,7 @@ const VideoSlider = ({
       <div className={`pointer-events-none absolute inset-0 bg-slate-950/15 ${lowPerformanceMode ? '' : 'backdrop-blur-[1.5px]'}`}></div>
 
       <div className="container relative z-10 mx-auto px-6 text-center">
-        {slides.map((slide, index) => (
+        {preparedSlides.map((slide, index) => (
           <div
             key={`content-${slide.title}-${index}`}
             className={`transition-all ${lowPerformanceMode ? 'duration-300 ease-out' : 'duration-700'} ${
@@ -213,7 +224,7 @@ const VideoSlider = ({
       </button>
 
       <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/55 px-2 py-1.5 backdrop-blur-sm transition-all duration-300 md:bottom-8">
-        {slides.map((slide, index) => (
+        {preparedSlides.map((slide, index) => (
           <button
             key={`dot-${slide.title}-${index}`}
             type="button"

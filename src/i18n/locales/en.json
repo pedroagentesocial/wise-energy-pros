@@ -169,32 +169,32 @@
           "sector": "Residential",
           "location": "Salt Lake City, UT",
           "summary": "Replaced an outdated split-bus panel with a modern 200A service, improving reliability and expansion capacity.",
-          "beforeImage": "https://placehold.co/1200x800/0f172a/94a3b8?text=Residential+Panel+Before",
-          "afterImage": "https://placehold.co/1200x800/164e63/cffafe?text=Residential+Panel+After"
+          "beforeImage": "/images/tangled-situation-concept-with-many-electric-wires-2026-01-05-00-21-47-utc.jpg",
+          "afterImage": "/images/electric-distribution-boxes-in-industrial-room-2026-01-11-08-13-01-utc.jpg"
         },
         {
           "title": "Retail Lighting & Circuit Upgrade",
           "sector": "Commercial",
           "location": "Provo, UT",
           "summary": "Renovated branch circuits and converted legacy fixtures to efficient smart-controlled LED systems.",
-          "beforeImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-          "afterImage": "https://placehold.co/1200x800/164e63/cffafe?text=Retail+Lighting+After"
+          "beforeImage": "/images/blank-hanging-wall-sign-to-add-company-identity-lo-2026-03-17-14-49-14-utc.jpg",
+          "afterImage": "/images/spacious-empty-room-2026-01-07-23-22-56-utc.jpg"
         },
         {
           "title": "EV-Ready Multi-Unit Retrofit",
           "sector": "Residential",
           "location": "Ogden, UT",
           "summary": "Upgraded load distribution and installed dedicated EV charging circuits for a multi-unit property.",
-          "beforeImage": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=80",
-          "afterImage": "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80"
+          "beforeImage": "/images/room-under-construction-with-silver-aluminum-insul-2026-03-16-02-06-18-utc.jpg",
+          "afterImage": "/images/professional-technician-engineer-with-safety-helme-2026-01-09-08-17-37-utc.jpg"
         },
         {
           "title": "Industrial Safety Compliance Modernization",
           "sector": "Industrial",
           "location": "West Jordan, UT",
           "summary": "Corrected grounding deficiencies, reorganized panels, and delivered a clean inspection-ready electrical room.",
-          "beforeImage": "https://placehold.co/1200x800/0f172a/94a3b8?text=Industrial+Safety+Before",
-          "afterImage": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1200&q=80"
+          "beforeImage": "/images/a-small-fire-occurred-of-a-row-of-various-types-of-2026-01-06-09-59-14-utc.jpg",
+          "afterImage": "/images/air-duct-automatic-fire-sprinkler-safety-system-2026-03-18-04-36-05-utc.JPG"
         }
       ]
     },
