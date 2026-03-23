@@ -398,7 +398,7 @@
         {
           "title": "Electrical Installation",
           "description": "Code-compliant installation work designed for safe startup and long-term reliability.",
-          "image": "https://images.unsplash.com/photo-1581092160607-ee22731d8bd2?auto=format&fit=crop&w=1600&q=80",
+          "image": "/images/professional-technician-engineer-with-safety-helme-2026-01-09-08-17-37-utc.jpg",
           "imageAlt": "Electrician installing electrical wiring and components",
           "sectors": ["residential", "commercial", "industrial"],
           "cta": "Request Installation Quote",
@@ -411,7 +411,7 @@
         {
           "title": "Maintenance",
           "description": "Preventive and corrective maintenance to reduce downtime and protect system performance.",
-          "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+          "image": "/images/tangled-situation-concept-with-many-electric-wires-2026-01-05-00-21-47-utc.jpg",
           "imageAlt": "Electrical maintenance technician performing diagnostics",
           "sectors": ["residential", "commercial", "industrial"],
           "cta": "Schedule Maintenance",
@@ -424,7 +424,7 @@
         {
           "title": "Panel Upgrades",
           "description": "Capacity upgrades for modern demand, safety compliance, and expansion readiness.",
-          "image": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=80",
+          "image": "/images/electric-distribution-boxes-in-industrial-room-2026-01-11-08-13-01-utc.jpg",
           "imageAlt": "Modern electrical service panel upgrade",
           "sectors": ["residential", "commercial", "industrial"],
           "cta": "Get Panel Upgrade Quote",
@@ -437,7 +437,7 @@
         {
           "title": "System Renovation",
           "description": "Modernization of aging electrical infrastructure to current standards and future needs.",
-          "image": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1600&q=80",
+          "image": "/images/room-under-construction-with-silver-aluminum-insul-2026-03-16-02-06-18-utc.jpg",
           "imageAlt": "Renovated electrical room with organized systems",
           "sectors": ["residential", "commercial"],
           "cta": "Plan System Renovation",
@@ -450,7 +450,7 @@
         {
           "title": "EV Charger Installation",
           "description": "End-to-end EV charging deployment with safe power delivery and scalable design.",
-          "image": "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1600&q=80",
+          "image": "/images/air-duct-automatic-fire-sprinkler-safety-system-2026-03-18-04-36-05-utc.JPG",
           "imageAlt": "EV charger installation at a property",
           "sectors": ["residential", "commercial", "industrial"],
           "cta": "Request EV Charger Quote",
