@@ -23,7 +23,7 @@ type ServicesGridProps = {
   items: ServiceItem[];
 };
 
-const iconClasses = 'h-6 w-6 text-cyan-300 transition-colors duration-300';
+const iconClasses = 'h-6 w-6 text-cyan-700 transition-colors duration-300';
 
 const ServiceIcon = ({ icon }: { icon: ServiceItem['icon'] }) => {
   if (icon === 'installation') {
@@ -101,10 +101,10 @@ const ServicesGrid = ({ heading, intro, sectorLabels, labels, items }: ServicesG
   }, [items.length]);
 
   return (
-    <section className="bg-slate-950 py-16 md:py-20">
+    <section className="bg-slate-50 py-16 md:py-20">
       <div className="container mx-auto px-6">
-        <h2 className="text-center text-3xl font-bold text-slate-50 md:text-4xl">{heading}</h2>
-        {intro && <p className="mx-auto mt-4 max-w-3xl text-center text-slate-400 md:text-lg">{intro}</p>}
+        <h2 className="text-center text-3xl font-bold text-slate-900 md:text-4xl">{heading}</h2>
+        {intro && <p className="mx-auto mt-4 max-w-3xl text-center text-slate-500 md:text-lg">{intro}</p>}
         <div className={intro ? 'mt-10' : 'mt-12'}>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
@@ -112,20 +112,20 @@ const ServicesGrid = ({ heading, intro, sectorLabels, labels, items }: ServicesG
               key={item.title}
               data-service-card
               data-index={index}
-              className={`group flex h-full flex-col rounded-2xl border border-slate-800/90 bg-slate-900/45 p-5 backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1 hover:border-cyan-400/70 hover:shadow-[0_16px_32px_rgba(8,47,73,0.28)] md:p-6 ${
+              className={`group flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-5 backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1 hover:border-cyan-400/70 hover:shadow-[0_16px_32px_rgba(8,47,73,0.28)] md:p-6 ${
                 visible[index] ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
               }`}
               style={{ transitionDelay: `${index * 90}ms` }}
             >
               <div className="mb-4 flex items-start justify-between gap-3">
-                <div className="inline-flex rounded-xl border border-slate-800 bg-slate-950/80 p-3 transition-all duration-300 group-hover:border-cyan-400/70 group-hover:bg-slate-900">
+                <div className="inline-flex rounded-xl border border-slate-200 bg-white p-3 transition-all duration-300 group-hover:border-cyan-400/70 group-hover:bg-white">
                   <ServiceIcon icon={item.icon} />
                 </div>
-                <span className="rounded-full border border-slate-700 bg-slate-950/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400">{labels.cardTag}</span>
+                <span className="rounded-full border border-slate-300 bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-500">{labels.cardTag}</span>
               </div>
-              <h3 className="text-lg font-bold leading-snug text-slate-50 md:text-xl">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-400 md:text-base">{item.description}</p>
-              <div className="mt-5 border-t border-slate-800/80 pt-4">
+              <h3 className="text-lg font-bold leading-snug text-slate-900 md:text-xl">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-500 md:text-base">{item.description}</p>
+              <div className="mt-5 border-t border-slate-200/80 pt-4">
                 <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500">{labels.applicableSectors}</p>
                 <div className="flex flex-wrap gap-2">
                 {allSectors.map((sector) => {

@@ -19,14 +19,14 @@ const termsUrl = localizedPath(lang, '/terms-and-conditions');
 ---
 
 <Layout title={t.meta.contact.title} description={t.meta.contact.description} lang={lang}>
-	<section class="bg-slate-950 py-20">
+	<section class="bg-slate-50 py-20">
 		<div class="container mx-auto px-6 opacity-0 translate-y-4" data-reveal data-stagger-parent>
-			<h1 class="text-4xl font-extrabold text-slate-50 md:text-5xl">{t.contact.heading}</h1>
-			<p class="mt-4 max-w-3xl text-slate-400">{t.contact.intro}</p>
+			<h1 class="text-4xl font-extrabold text-slate-900 md:text-5xl">{t.contact.heading}</h1>
+			<p class="mt-4 max-w-3xl text-slate-500">{t.contact.intro}</p>
 			<div class="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
-				<div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-4 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50 md:p-6" data-stagger-item>
-					<h2 class="mb-4 text-xl font-bold text-slate-50">{t.contact.mapTitle}</h2>
-					<div class="overflow-hidden rounded-xl border border-slate-800">
+				<div class="rounded-2xl border border-slate-200 bg-white p-4 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50 md:p-6" data-stagger-item>
+					<h2 class="mb-4 text-xl font-bold text-slate-900">{t.contact.mapTitle}</h2>
+					<div class="overflow-hidden rounded-xl border border-slate-200">
 						<iframe
 							title={t.contact.mapTitle}
 							src="https://www.google.com/maps?q=United+States&output=embed"
@@ -36,7 +36,7 @@ const termsUrl = localizedPath(lang, '/terms-and-conditions');
 						></iframe>
 					</div>
 				</div>
-				<div class="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50" data-stagger-item>
+				<div class="rounded-2xl border border-slate-200 bg-white p-6 backdrop-blur-md opacity-0 translate-y-3 transition-all duration-300 hover:border-cyan-400/50" data-stagger-item>
 					<ValidatedLeadForm
 						client:load
 						strings={t.forms}

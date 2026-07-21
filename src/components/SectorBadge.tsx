@@ -9,15 +9,15 @@ type SectorBadgeProps = {
 const baseClasses = 'inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide';
 
 const activeClasses: Record<SectorKey, string> = {
-  residential: 'border-blue-400/55 bg-blue-500/10 text-blue-300',
-  commercial: 'border-cyan-400/55 bg-cyan-500/10 text-cyan-300',
+  residential: 'border-blue-400/55 bg-blue-500/10 text-blue-600',
+  commercial: 'border-cyan-400/55 bg-cyan-500/10 text-cyan-700',
   industrial: 'border-amber-400/55 bg-amber-500/10 text-amber-300',
 };
 
 const mutedClasses: Record<SectorKey, string> = {
-  residential: 'border-slate-700 bg-slate-950/70 text-slate-500',
-  commercial: 'border-slate-700 bg-slate-950/70 text-slate-500',
-  industrial: 'border-slate-700 bg-slate-950/70 text-slate-500',
+  residential: 'border-slate-300 bg-white text-slate-500',
+  commercial: 'border-slate-300 bg-white text-slate-500',
+  industrial: 'border-slate-300 bg-white text-slate-500',
 };
 
 export const resolveSectorKey = (value: string): SectorKey => {

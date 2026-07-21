@@ -24,9 +24,9 @@ const riskCopy: Record<RiskLevel, string> = {
 };
 
 const riskAccent: Record<RiskLevel, string> = {
-  High: 'text-cyan-400',
+  High: 'text-cyan-600',
   Medium: 'text-blue-500',
-  Low: 'text-slate-50',
+  Low: 'text-slate-900',
 };
 
 const calculateRisk = (homeAge: HomeAgeOption, issues: IssueOption[]): RiskLevel => {
@@ -71,23 +71,23 @@ const ElectricalHealthCheck = () => {
   };
 
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur-md">
-      <div className="mb-8 grid grid-cols-3 gap-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
-        <div className={`rounded-lg border px-3 py-2 text-center ${step >= 1 ? 'border-blue-600 text-slate-50' : 'border-slate-800'}`}>Profile</div>
-        <div className={`rounded-lg border px-3 py-2 text-center ${step >= 2 ? 'border-blue-600 text-slate-50' : 'border-slate-800'}`}>Indicators</div>
-        <div className={`rounded-lg border px-3 py-2 text-center ${step >= 3 ? 'border-blue-600 text-slate-50' : 'border-slate-800'}`}>Assessment</div>
+    <div className="rounded-2xl border border-slate-200 bg-white p-8 backdrop-blur-md">
+      <div className="mb-8 grid grid-cols-3 gap-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <div className={`rounded-lg border px-3 py-2 text-center ${step >= 1 ? 'border-blue-600 text-slate-900' : 'border-slate-200'}`}>Profile</div>
+        <div className={`rounded-lg border px-3 py-2 text-center ${step >= 2 ? 'border-blue-600 text-slate-900' : 'border-slate-200'}`}>Indicators</div>
+        <div className={`rounded-lg border px-3 py-2 text-center ${step >= 3 ? 'border-blue-600 text-slate-900' : 'border-slate-200'}`}>Assessment</div>
       </div>
 
       {step === 1 && (
         <div>
-          <h3 className="mb-3 text-2xl font-bold text-slate-50">Step 1: Select Property Build Era</h3>
-          <p className="mb-5 text-slate-400">Older electrical architecture usually carries higher modernization priority under current NEC expectations.</p>
+          <h3 className="mb-3 text-2xl font-bold text-slate-900">Step 1: Select Property Build Era</h3>
+          <p className="mb-5 text-slate-500">Older electrical architecture usually carries higher modernization priority under current NEC expectations.</p>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {ageOptions.map((option) => (
               <button
                 key={option.value}
                 onClick={() => onSelectAge(option.value)}
-                className="rounded-xl border border-slate-800 bg-slate-950/70 p-4 text-slate-50 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:bg-slate-900"
+                className="rounded-xl border border-slate-200 bg-white p-4 text-slate-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:bg-white"
               >
                 {option.label}
               </button>
@@ -98,8 +98,8 @@ const ElectricalHealthCheck = () => {
 
       {step === 2 && (
         <div>
-          <h3 className="mb-3 text-2xl font-bold text-slate-50">Step 2: Flag Electrical Symptoms</h3>
-          <p className="mb-5 text-slate-400">Select all observed issues. Multiple active symptoms usually indicate compounding load or distribution weaknesses.</p>
+          <h3 className="mb-3 text-2xl font-bold text-slate-900">Step 2: Flag Electrical Symptoms</h3>
+          <p className="mb-5 text-slate-500">Select all observed issues. Multiple active symptoms usually indicate compounding load or distribution weaknesses.</p>
           <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
             {issueOptions.map((option) => {
               const isActive = issues.includes(option.value);
@@ -109,8 +109,8 @@ const ElectricalHealthCheck = () => {
                   onClick={() => onToggleIssue(option.value)}
                   className={`rounded-xl border p-4 text-left transition-all duration-300 ${
                     isActive
-                      ? 'border-blue-600 bg-blue-600/20 text-slate-50'
-                      : 'border-slate-800 bg-slate-950/70 text-slate-400 hover:border-cyan-400/70 hover:text-slate-50'
+                      ? 'border-blue-600 bg-blue-600/20 text-white'
+                      : 'border-slate-200 bg-white text-slate-500 hover:border-cyan-400/70 hover:text-slate-900'
                   }`}
                 >
                   {option.label}
@@ -120,7 +120,7 @@ const ElectricalHealthCheck = () => {
           </div>
           <button
             onClick={onCalculate}
-            className="w-full rounded-full bg-blue-600 px-8 py-3.5 font-bold text-slate-50 shadow-[0_0_24px_rgba(37,99,235,0.55)] transition-all duration-300 hover:bg-blue-500"
+            className="w-full rounded-full bg-blue-600 px-8 py-3.5 font-bold text-white shadow-[0_0_24px_rgba(37,99,235,0.55)] transition-all duration-300 hover:bg-blue-500"
           >
             Generate Risk Assessment
           </button>
@@ -128,22 +128,22 @@ const ElectricalHealthCheck = () => {
       )}
 
       {step === 3 && risk && (
-        <div className="animate-accordion-down rounded-2xl border border-slate-800 bg-slate-950/80 p-6 text-center">
-          <h3 className="mb-2 text-2xl font-bold text-slate-50">
+        <div className="animate-accordion-down rounded-2xl border border-slate-200 bg-white p-6 text-center">
+          <h3 className="mb-2 text-2xl font-bold text-slate-900">
             Risk Assessment:{' '}
             <span className={riskAccent[risk]}>
               {risk}
             </span>
           </h3>
-          <p className="mx-auto mb-7 max-w-xl text-slate-400">{riskCopy[risk]}</p>
+          <p className="mx-auto mb-7 max-w-xl text-slate-500">{riskCopy[risk]}</p>
           <a
             href="#book-consultation"
-            className="inline-flex rounded-full bg-blue-600 px-8 py-3.5 font-bold text-slate-50 shadow-[0_0_24px_rgba(37,99,235,0.55)] transition-all duration-300 hover:bg-blue-500"
+            className="inline-flex rounded-full bg-blue-600 px-8 py-3.5 font-bold text-white shadow-[0_0_24px_rgba(37,99,235,0.55)] transition-all duration-300 hover:bg-blue-500"
           >
             Book a Certified US Electrical Professional
           </a>
           <div>
-            <button onClick={onReset} className="mt-5 text-sm font-semibold text-slate-400 transition-colors hover:text-slate-50">
+            <button onClick={onReset} className="mt-5 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-900">
               Restart Assessment
             </button>
           </div>

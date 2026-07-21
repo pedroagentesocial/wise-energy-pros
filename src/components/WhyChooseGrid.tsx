@@ -12,7 +12,7 @@ type WhyChooseGridProps = {
   items: WhyChooseItem[];
 };
 
-const iconClasses = 'h-6 w-6 text-cyan-300 transition-colors duration-300';
+const iconClasses = 'h-6 w-6 text-cyan-700 transition-colors duration-300';
 
 const WhyChooseIcon = ({ icon }: { icon: WhyChooseItem['icon'] }) => {
   if (icon === 'licensed') {
@@ -112,27 +112,27 @@ const WhyChooseGrid = ({ heading, intro, items }: WhyChooseGridProps) => {
   }, [items, sectionVisible]);
 
   return (
-    <section ref={sectionRef} className="bg-slate-950 py-16 md:py-20">
+    <section ref={sectionRef} className="bg-slate-50 py-16 md:py-20">
       <div
         className={`container mx-auto px-6 transition-all duration-700 ease-out ${
           sectionVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
         }`}
       >
-        <h2 className="text-center text-3xl font-bold text-slate-50 md:text-4xl">{heading}</h2>
-        <p className="mx-auto mt-4 max-w-3xl text-center text-slate-400 md:text-lg">{intro}</p>
+        <h2 className="text-center text-3xl font-bold text-slate-900 md:text-4xl">{heading}</h2>
+        <p className="mx-auto mt-4 max-w-3xl text-center text-slate-500 md:text-lg">{intro}</p>
         <div className="mt-8 grid grid-cols-1 gap-5 md:mt-10 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
             <article
               key={item.title}
-              className={`group rounded-2xl border border-slate-800/90 bg-slate-900/45 p-5 backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1 hover:border-cyan-400/65 hover:shadow-[0_14px_30px_rgba(15,23,42,0.45)] hover:shadow-cyan-400/20 md:p-6 ${
+              className={`group rounded-2xl border border-slate-200/90 bg-white p-5 backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1 hover:border-cyan-400/65 hover:shadow-[0_14px_30px_rgba(15,23,42,0.45)] hover:shadow-cyan-400/20 md:p-6 ${
                 visibleCards[index] ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
               }`}
             >
-              <div className="mb-4 inline-flex rounded-xl border border-slate-800 bg-slate-950/80 p-3 transition-all duration-500 ease-out group-hover:border-cyan-400/70 group-hover:bg-slate-900">
+              <div className="mb-4 inline-flex rounded-xl border border-slate-200 bg-white p-3 transition-all duration-500 ease-out group-hover:border-cyan-400/70 group-hover:bg-white">
                 <WhyChooseIcon icon={item.icon} />
               </div>
-              <h3 className="text-lg font-bold leading-snug text-slate-50 md:text-xl">{item.title}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-400 md:text-base">{item.description}</p>
+              <h3 className="text-lg font-bold leading-snug text-slate-900 md:text-xl">{item.title}</h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-slate-500 md:text-base">{item.description}</p>
             </article>
           ))}
         </div>

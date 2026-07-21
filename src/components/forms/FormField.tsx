@@ -39,15 +39,15 @@ export const FormField = ({
   onBlur,
   onChange,
 }: FormFieldProps) => {
-  const inputClass = `w-full rounded-xl border bg-slate-950/90 px-4 text-slate-50 placeholder:text-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 ${
+  const inputClass = `w-full rounded-xl border bg-white px-4 text-slate-900 placeholder:text-slate-500 transition-all duration-300 focus:outline-none focus:ring-2 ${
     compact ? 'py-2.5 text-sm' : 'py-3 text-sm'
   } ${
     error
       ? 'border-red-400/70 bg-red-500/5 focus:border-red-400/80 focus:ring-red-400/35'
       : successText
       ? 'border-cyan-400/60 focus:border-cyan-400/75 focus:ring-cyan-400/35'
-      : 'border-slate-800 focus:border-cyan-400/70 focus:ring-cyan-400/30'
-  } ${disabled ? 'cursor-not-allowed opacity-70' : ''} ${!disabled ? 'hover:border-slate-700' : ''}`;
+      : 'border-slate-200 focus:border-cyan-400/70 focus:ring-cyan-400/30'
+  } ${disabled ? 'cursor-not-allowed opacity-70' : ''} ${!disabled ? 'hover:border-slate-300' : ''}`;
 
   return (
     <div className="space-y-1.5">
@@ -94,11 +94,11 @@ export const FormField = ({
         </p>
       )}
       {error && (
-        <p id={`${id}-error`} className="text-xs font-medium text-red-300 animate-in fade-in duration-200">
+        <p id={`${id}-error`} className="text-xs font-medium text-red-600 animate-in fade-in duration-200">
           {error}
         </p>
       )}
-      {!error && successText && <p className="text-xs font-medium text-cyan-400 animate-in fade-in duration-200">{successText}</p>}
+      {!error && successText && <p className="text-xs font-medium text-cyan-600 animate-in fade-in duration-200">{successText}</p>}
     </div>
   );
 };
