@@ -108,7 +108,7 @@ const VideoSlider = ({
 
   return (
     <section
-      className="group/slider relative isolate flex min-h-[100svh] items-center overflow-hidden bg-slate-950"
+      className="group/slider relative isolate flex min-h-[100svh] items-center overflow-hidden bg-slate-100"
       aria-label={ariaLabel}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -161,9 +161,9 @@ const VideoSlider = ({
         ))}
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-950/88 via-slate-950/72 to-slate-900/78"></div>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.18),_transparent_40%),radial-gradient(circle_at_bottom_left,_rgba(37,99,235,0.22),_transparent_42%)]"></div>
-      <div className={`pointer-events-none absolute inset-0 bg-slate-950/15 ${lowPerformanceMode ? '' : 'backdrop-blur-[1.5px]'}`}></div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/85 via-white/70 to-slate-100/82"></div>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.14),_transparent_42%),radial-gradient(circle_at_bottom_left,_rgba(37,99,235,0.12),_transparent_44%)]"></div>
+      <div className={`pointer-events-none absolute inset-0 bg-white/20 ${lowPerformanceMode ? '' : 'backdrop-blur-[1.5px]'}`}></div>
 
       <div className="container relative z-10 mx-auto px-6 text-center">
         {preparedSlides.map((slide, index) => (
@@ -178,12 +178,12 @@ const VideoSlider = ({
             }`}
             aria-hidden={index !== activeIndex}
           >
-            <h1 className={`mx-auto max-w-5xl text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-50 transition-all ${
+            <h1 className={`mx-auto max-w-5xl text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 transition-all ${
               lowPerformanceMode ? 'duration-300' : 'duration-700'
             } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'} sm:text-5xl md:text-7xl`}>
               {slide.title}
             </h1>
-            <p className={`mx-auto mt-6 max-w-3xl text-base text-slate-300 transition-all ${
+            <p className={`mx-auto mt-6 max-w-3xl text-base text-slate-700 transition-all ${
               lowPerformanceMode ? 'duration-300' : 'duration-700 delay-100'
             } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'} sm:text-lg md:text-xl`}>
               {slide.subtitle}
@@ -206,9 +206,9 @@ const VideoSlider = ({
         type="button"
         aria-label={previousLabel}
         onClick={() => goTo(activeIndex - 1, true)}
-        className={`absolute left-3 top-1/2 z-20 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-slate-700 bg-slate-900/75 text-slate-100 shadow-[0_0_20px_rgba(2,6,23,0.35)] transition-all ${
+        className={`absolute left-3 top-1/2 z-20 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/85 text-slate-700 shadow-[0_8px_20px_rgba(2,6,23,0.12)] backdrop-blur-sm transition-all ${
           lowPerformanceMode ? 'duration-200' : 'duration-300'
-        } hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 md:left-6 md:h-14 md:w-14 md:opacity-0 md:group-hover/slider:opacity-100 md:group-focus-within/slider:opacity-100`}
+        } hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 md:left-6 md:h-14 md:w-14 md:opacity-0 md:group-hover/slider:opacity-100 md:group-focus-within/slider:opacity-100`}
       >
         <span aria-hidden="true" className="text-2xl leading-none">‹</span>
       </button>
@@ -216,14 +216,14 @@ const VideoSlider = ({
         type="button"
         aria-label={nextLabel}
         onClick={() => goTo(activeIndex + 1, true)}
-        className={`absolute right-3 top-1/2 z-20 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-slate-700 bg-slate-900/75 text-slate-100 shadow-[0_0_20px_rgba(2,6,23,0.35)] transition-all ${
+        className={`absolute right-3 top-1/2 z-20 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-white/85 text-slate-700 shadow-[0_8px_20px_rgba(2,6,23,0.12)] backdrop-blur-sm transition-all ${
           lowPerformanceMode ? 'duration-200' : 'duration-300'
-        } hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 md:right-6 md:h-14 md:w-14 md:opacity-0 md:group-hover/slider:opacity-100 md:group-focus-within/slider:opacity-100`}
+        } hover:scale-105 hover:border-cyan-400/70 hover:text-cyan-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60 md:right-6 md:h-14 md:w-14 md:opacity-0 md:group-hover/slider:opacity-100 md:group-focus-within/slider:opacity-100`}
       >
         <span aria-hidden="true" className="text-2xl leading-none">›</span>
       </button>
 
-      <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/55 px-2 py-1.5 backdrop-blur-sm transition-all duration-300 md:bottom-8">
+      <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-slate-200/80 bg-white/75 px-2 py-1.5 backdrop-blur-sm shadow-[0_6px_18px_rgba(2,6,23,0.1)] transition-all duration-300 md:bottom-8">
         {preparedSlides.map((slide, index) => (
           <button
             key={`dot-${slide.title}-${index}`}
@@ -239,7 +239,7 @@ const VideoSlider = ({
           >
             <span
               className={`h-2.5 rounded-full transition-all duration-300 ${
-                index === activeIndex ? 'w-8 bg-cyan-400' : 'w-2.5 bg-slate-400/70 group-hover/slider:bg-slate-300'
+                index === activeIndex ? 'w-8 bg-cyan-500' : 'w-2.5 bg-slate-400/80 group-hover/slider:bg-slate-500'
               }`}
             />
           </button>
