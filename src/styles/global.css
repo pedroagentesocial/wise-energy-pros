@@ -10,6 +10,14 @@
   body {
     @apply bg-slate-50 text-slate-900 antialiased;
   }
+
+  /* Indicador de foco visible y consistente para navegación por teclado
+     (a11y). :where() mantiene baja especificidad para que los componentes
+     puedan sobrescribirlo cuando haga falta. */
+  :where(a, button, [role='button'], input, select, textarea, summary):focus-visible {
+    outline: 2px solid rgb(37 99 235);
+    outline-offset: 2px;
+  }
 }
 
 @layer utilities {
