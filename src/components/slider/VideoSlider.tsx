@@ -108,7 +108,7 @@ const VideoSlider = ({
 
   return (
     <section
-      className="group/slider relative isolate flex min-h-[100svh] items-center overflow-hidden bg-slate-100"
+      className="group/slider relative isolate -mt-24 flex min-h-[100svh] items-center overflow-hidden bg-slate-100 pt-24"
       aria-label={ariaLabel}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
