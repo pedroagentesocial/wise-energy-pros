@@ -314,7 +314,8 @@
     "whatsapp": "WhatsApp",
     "floatingContact": "Contacto",
     "getQuote": "Cotizar",
-    "freeEstimate": "Estimación Gratis"
+    "freeEstimate": "Estimación Gratis",
+    "comingSoon": "Próximamente"
   },
   "forms": {
     "fields": {
@@ -583,7 +584,7 @@
       "projects": "Proyectos",
       "contact": "Contacto"
     },
-    "location": "Estados Unidos",
+    "location": "Próximamente",
     "social": {
       "facebook": "Facebook",
       "instagram": "Instagram",

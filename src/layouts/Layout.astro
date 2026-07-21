@@ -24,9 +24,9 @@ const navLinks = [
 	{ href: projectsUrl, label: dictionary.nav.projects },
 	{ href: localizedPath(currentLocale, '/contact'), label: dictionary.nav.contact },
 ];
-const contactPhoneDisplay = '+1 (800) 555-0145';
-const contactPhoneDial = '+18005550145';
-const whatsappUrl = `https://wa.me/18005550145?text=${encodeURIComponent('Hi Wise Energy Pros, I would like a quote.')}`;
+// Sin datos de contacto reales aún: el teléfono se muestra como "Próximamente"
+// / "Coming soon" y los enlaces (tel/WhatsApp) quedan inertes (href sin definir).
+const contactPhoneDisplay = dictionary.conversion.comingSoon;
 const localizedContactUrl = localizedPath(currentLocale, '/contact');
 const footerServiceLinks = [
 	{ label: dictionary.footer.servicesLinks.installation, href: localizedPath(currentLocale, '/services') },
@@ -82,10 +82,10 @@ const footerQuickLinks = [
 						))}
 					</div>
 					<LanguageSwitcher currentLocale={currentLocale} currentPath={currentPath} labels={dictionary.language} />
-					<a href={`tel:${contactPhoneDial}`} class="hidden items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 px-4 py-2 text-sm font-semibold text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400 xl:inline-flex">
+					<a href={undefined} aria-disabled="true" class="hidden items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 px-4 py-2 text-sm font-semibold text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400 xl:inline-flex">
 						{contactPhoneDisplay}
 					</a>
-					<a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-400/60 bg-cyan-400/10 text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20" aria-label={dictionary.conversion.whatsapp}>
+					<a href={undefined} aria-disabled="true" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-400/60 bg-cyan-400/10 text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20" aria-label={dictionary.conversion.whatsapp}>
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-4 w-4">
 							<path d="M4 6.8A2.8 2.8 0 0 1 6.8 4h10.4A2.8 2.8 0 0 1 20 6.8v7.4a2.8 2.8 0 0 1-2.8 2.8H9l-5 3V6.8Z" />
 						</svg>
@@ -126,10 +126,10 @@ const footerQuickLinks = [
 							))}
 						</nav>
 						<div class="mt-8 grid w-full max-w-xs gap-3">
-							<a href={`tel:${contactPhoneDial}`} class="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-sm font-semibold text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400" data-mobile-link>
+							<a href={undefined} aria-disabled="true" class="inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-sm font-semibold text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-400" data-mobile-link>
 								{dictionary.conversion.callNow}
 							</a>
-							<a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-xl border border-cyan-400/60 bg-cyan-400/10 px-4 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20" data-mobile-link>
+							<a href={undefined} aria-disabled="true" class="inline-flex items-center justify-center rounded-xl border border-cyan-400/60 bg-cyan-400/10 px-4 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20" data-mobile-link>
 								{dictionary.conversion.whatsapp}
 							</a>
 						</div>
@@ -155,9 +155,7 @@ const footerQuickLinks = [
 					location={dictionary.footer.location}
 					localizedContactUrl={localizedContactUrl}
 					contactPhoneDisplay={contactPhoneDisplay}
-					contactPhoneDial={contactPhoneDial}
-					whatsappUrl={whatsappUrl}
-					email="intake@wiseenergypros.com"
+					email={dictionary.conversion.comingSoon}
 				/>
 			</div>
 			<div class="container relative mx-auto px-6 pt-8">
@@ -218,10 +216,10 @@ const footerQuickLinks = [
 		</a>
 		<div class="fixed inset-x-0 bottom-0 z-50 border-t border-slate-800 bg-slate-900/90 p-3 backdrop-blur-md">
 			<div class="container mx-auto flex items-center gap-3">
-				<a href={`tel:${contactPhoneDial}`} class="inline-flex flex-1 items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-slate-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500">
+				<a href={undefined} aria-disabled="true" class="inline-flex flex-1 items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-slate-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500">
 					{dictionary.conversion.callNow}
 				</a>
-				<a href={whatsappUrl} target="_blank" rel="noreferrer" class="inline-flex flex-1 items-center justify-center rounded-xl border border-cyan-400/60 bg-cyan-400/10 px-4 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20">
+				<a href={undefined} aria-disabled="true" class="inline-flex flex-1 items-center justify-center rounded-xl border border-cyan-400/60 bg-cyan-400/10 px-4 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-400/20">
 					{dictionary.conversion.whatsapp}
 				</a>
 			</div>
