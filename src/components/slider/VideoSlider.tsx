@@ -178,27 +178,29 @@ const VideoSlider = ({
             }`}
             aria-hidden={index !== activeIndex}
           >
-            <div className="mx-auto max-w-3xl rounded-[2rem] border border-white/70 bg-white/70 px-6 py-10 shadow-[0_28px_80px_rgba(2,6,23,0.28)] backdrop-blur-xl sm:px-12 sm:py-12">
-            <h1 className={`mx-auto max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 transition-all ${
-              lowPerformanceMode ? 'duration-300' : 'duration-700'
-            } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'} sm:text-5xl md:text-6xl`}>
-              {slide.title}
-            </h1>
-            <p className={`mx-auto mt-6 max-w-3xl text-base text-slate-700 transition-all ${
-              lowPerformanceMode ? 'duration-300' : 'duration-700 delay-100'
-            } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'} sm:text-lg md:text-xl`}>
-              {slide.subtitle}
-            </p>
-            <div className={`mt-10 transition-all ${lowPerformanceMode ? 'duration-300' : 'duration-700 delay-150'} ${
-              index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
-            }`}>
-              <a
-                href={localizedHref(slide.href)}
-                className="inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3.5 text-base font-bold text-slate-50 ring-1 ring-blue-400/40 shadow-[0_0_26px_rgba(37,99,235,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-[0_0_32px_rgba(34,211,238,0.45)]"
-              >
-                {slide.cta}
-              </a>
-            </div>
+            <div className="relative mx-auto max-w-2xl overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/90 px-8 py-9 shadow-[0_24px_70px_rgba(2,6,23,0.22)] backdrop-blur-2xl sm:px-12 sm:py-11">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500"></div>
+              <h1 className={`text-4xl font-extrabold leading-[1.04] tracking-tight text-slate-900 transition-all ${
+                lowPerformanceMode ? 'duration-300' : 'duration-700'
+              } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'} sm:text-5xl md:text-6xl`}>
+                {slide.title}
+              </h1>
+              <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"></div>
+              <p className={`mx-auto mt-5 max-w-xl text-base text-slate-700 transition-all ${
+                lowPerformanceMode ? 'duration-300' : 'duration-700 delay-100'
+              } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'} sm:text-lg`}>
+                {slide.subtitle}
+              </p>
+              <div className={`mt-8 transition-all ${lowPerformanceMode ? 'duration-300' : 'duration-700 delay-150'} ${
+                index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+              }`}>
+                <a
+                  href={localizedHref(slide.href)}
+                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-8 py-3.5 text-base font-bold text-white ring-1 ring-blue-400/40 shadow-[0_10px_30px_rgba(37,99,235,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-[0_14px_36px_rgba(34,211,238,0.4)]"
+                >
+                  {slide.cta}
+                </a>
+              </div>
             </div>
           </div>
         ))}
