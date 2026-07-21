@@ -161,9 +161,9 @@ const VideoSlider = ({
         ))}
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/85 via-white/70 to-slate-100/82"></div>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.14),_transparent_42%),radial-gradient(circle_at_bottom_left,_rgba(37,99,235,0.12),_transparent_44%)]"></div>
-      <div className={`pointer-events-none absolute inset-0 bg-white/20 ${lowPerformanceMode ? '' : 'backdrop-blur-[1.5px]'}`}></div>
+      <div className="pointer-events-none absolute inset-0 bg-white/12"></div>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.16),_transparent_46%),radial-gradient(circle_at_bottom_left,_rgba(37,99,235,0.14),_transparent_48%)]"></div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-white/10"></div>
 
       <div className="container relative z-10 mx-auto px-6 text-center">
         {preparedSlides.map((slide, index) => (
@@ -178,9 +178,10 @@ const VideoSlider = ({
             }`}
             aria-hidden={index !== activeIndex}
           >
-            <h1 className={`mx-auto max-w-5xl text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 transition-all ${
+            <div className="mx-auto max-w-3xl rounded-[2rem] border border-white/70 bg-white/70 px-6 py-10 shadow-[0_28px_80px_rgba(2,6,23,0.28)] backdrop-blur-xl sm:px-12 sm:py-12">
+            <h1 className={`mx-auto max-w-3xl text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 transition-all ${
               lowPerformanceMode ? 'duration-300' : 'duration-700'
-            } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'} sm:text-5xl md:text-7xl`}>
+            } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'} sm:text-5xl md:text-6xl`}>
               {slide.title}
             </h1>
             <p className={`mx-auto mt-6 max-w-3xl text-base text-slate-700 transition-all ${
@@ -197,6 +198,7 @@ const VideoSlider = ({
               >
                 {slide.cta}
               </a>
+            </div>
             </div>
           </div>
         ))}
