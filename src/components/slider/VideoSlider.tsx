@@ -165,7 +165,7 @@ const VideoSlider = ({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.16),_transparent_46%),radial-gradient(circle_at_bottom_left,_rgba(37,99,235,0.14),_transparent_48%)]"></div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/35 via-transparent to-white/10"></div>
 
-      <div className="container relative z-10 mx-auto px-6 text-center">
+      <div className="container relative z-10 mx-auto px-6 text-left">
         {preparedSlides.map((slide, index) => (
           <div
             key={`content-${slide.title}-${index}`}
@@ -178,15 +178,15 @@ const VideoSlider = ({
             }`}
             aria-hidden={index !== activeIndex}
           >
-            <div className="relative mx-auto max-w-2xl overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/90 px-8 py-9 shadow-[0_24px_70px_rgba(2,6,23,0.22)] backdrop-blur-2xl sm:px-12 sm:py-11">
+            <div className="relative max-w-xl overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/90 px-8 py-9 shadow-[0_24px_70px_rgba(2,6,23,0.22)] backdrop-blur-2xl sm:px-12 sm:py-11">
               <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500"></div>
               <h1 className={`text-4xl font-extrabold leading-[1.04] tracking-tight text-slate-900 transition-all ${
                 lowPerformanceMode ? 'duration-300' : 'duration-700'
               } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'} sm:text-5xl md:text-6xl`}>
                 {slide.title}
               </h1>
-              <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"></div>
-              <p className={`mx-auto mt-5 max-w-xl text-base text-slate-700 transition-all ${
+              <div className="mt-5 h-1 w-16 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"></div>
+              <p className={`mt-5 max-w-md text-base text-slate-700 transition-all ${
                 lowPerformanceMode ? 'duration-300' : 'duration-700 delay-100'
               } ${index === activeIndex ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'} sm:text-lg`}>
                 {slide.subtitle}
